@@ -178,8 +178,8 @@
               <button id ="button" type="submit" value="Submit">Submit</button>
             </div>
           </form>
-          <form action="https://sneakertrackingberlin.de/">
-        <input id ="button_reset"  type="submit" value="Discard" />
+          <form>
+            <input onclick="window.location.href='../index.html'" id ="button_reset"  type="button" value="Discard" />
           </form>
         </div>
       </body>
