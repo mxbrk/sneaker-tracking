@@ -205,7 +205,7 @@
 
       </form>
       <form action="public_html/index.html/">
-        <input onclick="window.location.href='../index.html'" id ="button"  type="button" value="Go to homepage" />
+        <input onclick="window.location.href='../index.html'" id ="button"  type="button" value="Home" />
       </form>
     </div>
 </body>
