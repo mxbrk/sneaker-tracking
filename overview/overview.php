@@ -158,7 +158,7 @@ if ($result->num_rows > 0) {
 <input id ="button" type="submit" value="Add another sneaker" />
   </form>
   <form action="https://sneakertrackingberlin.de/">
-<input id ="button"  type="submit" value="Go to homepage" />
+<input id ="button"  type="submit" value="Home" />
   </form>
 </div>
 
