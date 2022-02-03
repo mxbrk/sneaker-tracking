@@ -209,7 +209,7 @@
 
       </form>
       <form action="https://sneakertrackingberlin.de/">
-        <input id ="button"  type="submit" value="Go to homepage" />
+        <input id ="button"  type="submit" value="Home" />
       </form>
     </div>
 </body>
