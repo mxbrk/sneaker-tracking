@@ -127,10 +127,7 @@
 </div>
     <div class="table">
     <?php
-    $servername = "servername";
-    $username = "username";
-    $password = "password";
-    $dbname = "database";
+    include '../db_config.php';
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -199,11 +196,11 @@ if ($result->num_rows > 0) {
   ?>
 </div>
 <div>
-  <form action="https://sneakertrackingberlin.de/">
-<input id ="button"  type="submit" value="Go to homepage" />
+  <form>
+    <input onclick="window.location.href='../numbers/numbers.php'" id ="button"  type="button" value="Numbers" />
   </form>
-  <form action="https://numbers.sneakertrackingberlin.de/">
-<input id ="button"  type="submit" value="Numbers" />
+  <form>
+    <input onclick="window.location.href='../index.html'" id ="button"  type="button" value="Home" />
   </form>
 
 </div>
