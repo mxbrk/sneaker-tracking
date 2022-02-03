@@ -86,12 +86,8 @@
         <div class ="main-block">
           <h1>Numbers</h1>
             <?php
-              $servername = "servername";
-              $username = "username";
-              $password = "password";
-              $dbname = "database";
-              // Create connection
-              $conn = mysqli_connect($servername, $username, $password, $dbname);
+            include '../db_config.php';
+            */$conn = mysqli_connect($servername, $username, $password, $dbname);
 
            if ($conn->connect_error) {
               die("Connection failed: " . $conn->connect_error);
