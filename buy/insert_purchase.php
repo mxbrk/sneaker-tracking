@@ -1,7 +1,8 @@
 <?php
 /* Attempt MySQL server connection. Assuming you are running MySQL
 server with default setting (user 'root' with no password) */
-$link = mysqli_connect("servername", "username", "password", "database");
+include '../db_config.php';
+$link = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
 if($link === false){
@@ -20,6 +21,7 @@ $buy_account = mysqli_real_escape_string($link, $_REQUEST['buy_account']);
 $sold = mysqli_real_escape_string($link, $_REQUEST['0']);
 $size = mysqli_real_escape_string($link, $_REQUEST['size']);
 // Attempt insert query execution
+
 $sql = "INSERT INTO sneaker (brand, modell, colorway, age, buy_shop, buy_date, buying_price, buy_account, sold, size, sell_shop, selling_price, profit_account, shipping_fee, transaction_fee, rounded_with_hk, payout, profit, payout_on_sk)
 VALUES ('$brand', '$modell', '$colorway', '$age', '$buy_shop', '$date', '$buying_price',
   '$buy_account', '$sold', '$size', null, null, null, null, null, null, null, null, null)";
@@ -29,6 +31,14 @@ if(mysqli_query($link, $sql)){
    echo "Succes";
 } else{
    echo "ERROR: Not able to execute $sql. " . mysqli_error($link);
+}
+
+$sql2 = "INSERT INTO progress (paid_item, created_item_id, transfer_sk_to_hk, arrived, listing_item, sold_item, shipped_to_buyer, authenticated_item, cashout_on_paypal, withdraw_on_hk, payout_on_sk, submit_sell_info)
+VALUES (1,1,0,0,0,0,0,0,0,0,0,0)";
+if(mysqli_query($link, $sql2)){
+   echo "Succes";
+} else{
+   echo "ERROR: Not able to execute $sql2. " . mysqli_error($link);
 }
 
 // Close connection
