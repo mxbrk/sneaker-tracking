@@ -1,4 +1,3 @@
-<?php
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -53,13 +52,12 @@
 <img src="greencheck.png"/><br>
   <h1>Your sneaker entry was succesfully updated with all selling information</h1>
     <div>
-      <form action="https://sell.sneakertrackingberlin.de/">
-    <input id ="button" type="submit" value="Sell another sneaker" />
+      <form>
+        <input onclick="window.location.href='sell_page.php'" id ="button"  type="button" value="Sell another sneaker" />
       </form>
-      <form action="https://sneakertrackingberlin.de/">
-    <input id ="button"  type="submit" value="Go to homepage" />
+      <form>
+        <input onclick="window.location.href='../index.html'" id ="button"  type="button" value="Home" />
       </form>
     </div>
   </body>
 </html>
-?>
