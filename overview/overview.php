@@ -79,10 +79,7 @@
   <body>
     <div class="table">
     <?php
-    $servername = "servername";
-    $username = "username";
-    $password = "password";
-    $dbname = "database";
+    include '../db_config.php';
     // Create connection
     $conn = mysqli_connect($servername, $username, $password, $dbname);
     if ($conn->connect_error) {
@@ -99,7 +96,7 @@
     buy_account,
     profit_account,
     shipping_fee + transaction_fee as fees,
-    rounded_with_hk,payout,profit,payout_on_sk FROM sneaker ORDER BY sold";
+    rounded_with_hk,payout,profit,payout_on_sk FROM sneaker ORDER BY sold ASC, sneakerID ASC";
 
 $result = $conn->query($sql);
 if ($result->num_rows > 0) {
@@ -151,14 +148,14 @@ if ($result->num_rows > 0) {
   ?>
 </div>
 <div>
-  <form action="https://sell.sneakertrackingberlin.de/">
-<input id ="button" type="submit" value="Sell another sneaker" />
+  <form>
+    <input onclick="window.location.href='../sell/sell_page.php'" id ="button"  type="button" value="Sell another sneaker" />
   </form>
-  <form action="https://buy.sneakertrackingberlin.de/">
-<input id ="button" type="submit" value="Add another sneaker" />
+  <form>
+    <input onclick="window.location.href='../buy/buy_page.php'" id ="button"  type="button" value="Buy another sneaker" />
   </form>
-  <form action="https://sneakertrackingberlin.de/">
-<input id ="button"  type="submit" value="Home" />
+  <form>
+    <input onclick="window.location.href='../index.html'" id ="button"  type="button" value="Home" />
   </form>
 </div>
 
