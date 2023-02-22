@@ -1,91 +1,114 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8"name="viewport" content="width=device-width, initial-scale=1.0">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STB-Numbers</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
-  <head>
-    <style media="screen">
-    html, body {
-    background-color:#00001a;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    }
-    body, div, h1, form, input, p, select {
-    padding: 0;
-    margin: 0;
-    outline: none;
-    font-family: Roboto, sans-serif;
-    font-size: 16px;
-    color: #eee;
-    }
-    h1 {
-    padding: 10px 0;
-    font-size: 32px;
-    font-weight: 300;
-    text-align: center;
-    }
-    p {
-    font-size: 12px;
-    }
-    .main-block {
-    height: auto;
-    border-radius: 20px;
-    box-sizing: border-box;
-    width: 340px;
-    min-height: 460px;
-    padding: 10px 0;
-    margin: auto;
-    background: #15172b;
-    }
-    form {
-    margin: 0 30px;
-    }
-    .placeholder{
-    color: #65657b;
-    font-family: sans-serif;
-    left: 20px;
-    top: 20px;
-    }
-    input[type=text], input[type=password], input[type=number], select , input[type=date]{
-    margin: 13px 0 0 -5px;
-    padding-left: 10px;
-    background-color: #303245;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #eee;
-    font-size: 18px;
-    height: 40px;
-    padding: 4px 20px 0;
-    width: 100%;
-    -moz-appearance: textfield;
-    }
-    #button {
-    background-color: #08d;
-    border-radius: 12px;
-    border: 0;
-    box-sizing: border-box;
-    color: #eee;
-    cursor: pointer;
-    font-size: 18px;
-    height: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
-    }
-    #button:hover {
-    background: #008cff;
-    }
-    </style>
-  </head>
+
+    <head>
+        <style media="screen">
+        html,
+        body {
+            background-color: #00001a;
+            display: flex;
+            justify-content: center;
+            height: 100%;
+        }
+
+        body,
+        div,
+        h1,
+        form,
+        input,
+        p,
+        select {
+            padding: 0;
+            margin: 0;
+            outline: none;
+            font-family: Roboto, sans-serif;
+            font-size: 16px;
+            color: #eee;
+        }
+
+        h1 {
+            padding: 10px 0;
+            font-size: 32px;
+            font-weight: 300;
+            text-align: center;
+        }
+
+        p {
+            font-size: 12px;
+        }
+
+        .main-block {
+            height: auto;
+            border-radius: 20px;
+            box-sizing: border-box;
+            width: 340px;
+            min-height: 460px;
+            padding: 10px 0;
+            margin: auto;
+            background: #15172b;
+        }
+
+        form {
+            margin: 0 30px;
+        }
+
+        .placeholder {
+            color: #65657b;
+            font-family: sans-serif;
+            left: 20px;
+            top: 20px;
+        }
+
+        input[type=text],
+        input[type=password],
+        input[type=number],
+        select,
+        input[type=date] {
+            margin: 13px 0 0 -5px;
+            padding-left: 10px;
+            background-color: #303245;
+            border-radius: 12px;
+            border: 0;
+            box-sizing: border-box;
+            color: #eee;
+            font-size: 18px;
+            height: 40px;
+            padding: 4px 20px 0;
+            width: 100%;
+            -moz-appearance: textfield;
+        }
+
+        #button {
+            background-color: #08d;
+            border-radius: 12px;
+            border: 0;
+            box-sizing: border-box;
+            color: #eee;
+            cursor: pointer;
+            font-size: 18px;
+            height: 50px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            text-align: center;
+            width: 100%;
+        }
+
+        #button:hover {
+            background: #008cff;
+        }
+        </style>
     </head>
-    <body>
-        <div class ="main-block">
-          <h1>Numbers</h1>
-            <?php
+</head>
+
+<body>
+    <div class="main-block">
+        <h1>Numbers</h1>
+        <?php
             include '../db_config.php';
             */$conn = mysqli_connect($servername, $username, $password, $dbname);
 
@@ -203,10 +226,11 @@
       $conn->close();
       ?>
 
-      </form>
-      <form action="public_html/index.html/">
-        <input onclick="window.location.href='../index.html'" id ="button"  type="button" value="Home" />
-      </form>
+        </form>
+        <form action="public_html/index.html/">
+            <input onclick="window.location.href='../index.html'" id="button" type="button" value="Home" />
+        </form>
     </div>
 </body>
+
 </html>
