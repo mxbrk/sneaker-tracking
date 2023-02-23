@@ -1,0 +1,261 @@
+.light-grey {
+  background-color: #e5e5e5;
+  border-radius: 15px;
+}
+
+.Level1 {
+  color: #ff2d00;
+  background-color: #ff2d00;
+  border-radius: 15px;
+}
+
+.Level2 {
+  color: #ff6100;
+  background-color: #ff6100;
+  border-radius: 15px;
+}
+
+.Level3 {
+  color: #ff8f00;
+  background-color: #ff8f00;
+  border-radius: 15px;
+}
+
+.Level4 {
+  color: #ffd400;
+  background-color: #ffd400;
+  border-radius: 15px;
+}
+
+.Level5 {
+  color: #a9ff00;
+  background-color: #a9ff00;
+  border-radius: 15px;
+}
+
+.Level6 {
+  color: #61d500;
+  background-color: #61d500;
+  border-radius: 15px;
+}
+
+.Level7 {
+  color: #03c200;
+  background-color: #03c200;
+  border-radius: 15px;
+}
+
+/* Navigation */
+nav {
+  margin: auto;
+  width: 100%;
+  max-width: 1050px;
+  padding-bottom: 20px;
+}
+
+ul#navigation {
+  margin: 0;
+  padding: 0;
+  list-style-type: None;
+  height: 32px;
+}
+
+ul#navigation li {
+  float: Left;
+  width: 150px;
+  position: Relative;
+}
+
+ul#navigation li a {
+  display: Block;
+  width: 150px;
+  line-height: 30px;
+  text-align: Center;
+  color: #ffffff;
+  text-decoration: None;
+  background-color: #00001a;
+  transition: color 0.5s;
+}
+
+ul#navigation li a:hover,
+ul#navigation li a:active {
+  color: #ffffff;
+  cursor: Pointer;
+}
+
+/* Smartphone Menu */
+#burger {
+  display: None;
+}
+
+@media screen and (max-width: 580px) {
+  ul#navigation li,
+  ul#navigation li a {
+    width: 100%;
+  }
+
+  #burger {
+    display: Block;
+    margin-right: 25px;
+    -moz-appearance: None;
+    -webkit-appearance: None;
+    width: 25px;
+    height: 25px;
+    background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeAQAAAAATS5MPAAAAAnRSTlMAAHaTzTgAAAAUSURBVHjaY2DAC/7///8HN0EzvQD48y+tFbUTjAAAAABJRU5ErkJggg==");
+    background-size: 25px 25px;
+    background-position: Center Center;
+    background-color: #00001a;
+    vertical-align: Middle;
+    border: None;
+    outline: None;
+    cursor: Pointer;
+  }
+
+  #burger:checked ~ ul#navigation {
+    animation: fadeIn 1.2s;
+    display: Block;
+    margin-top: 5px;
+  }
+
+  #burger:not(:checked) ~ ul#navigation {
+    display: None;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+body {
+  font-family: Roboto, sans-serif;
+  text-align: center;
+  background: #00001a;
+}
+
+table {
+  /*defining properties for div surrounding the talbe*/
+  border-collapse: collapse;
+}
+
+.table {
+  /*defining properties for div surrounding the talbe*/
+  width: 1800px;
+  height: 600px;
+  overflow-y: scroll;
+  border-radius: 5px;
+  margin: 30px;
+  background: #15172b;
+  table-layout: fixed;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+td {
+  /*setting properties for table data/ cells*/
+  color: #ffffff;
+  padding: 7px;
+  text-align: center;
+}
+
+th {
+  /*setting properties for table head*/
+  background: #08d;
+  color: #ffffff;
+  font-family: Roboto, sans-serif;
+  padding: 11px;
+  text-align: center;
+  position: sticky;
+  box-shadow: 0 2px 2px -1px rgba(0, 0, 0, 0.4);
+  top: 0;
+}
+
+.progress th td {
+  width: 100px;
+}
+
+tr td {
+  /*dividing rows with thin grey line*/
+  border-bottom: 1px solid #a6a6a6;
+}
+
+tr:hover {
+  /*colorchange for mouseover*/
+  background-color: #404040;
+}
+
+h1 {
+  /*setting properties for page caption*/
+  padding: 10px 0;
+  font-size: 32px;
+  font-weight: 300;
+  text-align: center;
+  font-family: Roboto, sans-serif;
+  color: #ffffff;
+}
+
+table tr th:nth-child(2) {
+  /*making the first column wider, that Sneaker name fits in one line*/
+  width: 300px !important;
+}
+
+#searchInput {
+  height: 33px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: #ffffff;
+  border: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+}
+
+.wrapperForm {
+  border-radius: 5px;
+  background-color: #15172b;
+  box-sizing: border-box;
+  margin: auto;
+  padding: 10px;
+  display: inline-block;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+input[type="date"] {
+  background-color: #ffffff;
+  border-radius: 5px;
+  border: 0;
+  box-sizing: border-box;
+  color: #000000;
+  font-size: 18px;
+  height: 33px;
+  padding: 5px;
+  -moz-appearance: textfield;
+}
+
+#sneakerID {
+  width: 80px;
+}
+
+#button {
+  background-color: #08d;
+  border-radius: 5px;
+  border: 0;
+  box-sizing: border-box;
+  color: #eee;
+  cursor: pointer;
+  font-size: 18px;
+  height: 33px;
+  text-align: center;
+  width: 100px;
+}
+
+#button:hover {
+  background: #008cff;
+}
