@@ -37,9 +37,9 @@
                 <option value="listing_item">Listed for selling</option>
                 <option value="sold_item">Sold</option>
                 <option value="shipped_to_buyer">Shipped to buyer</option>
-                <option value="submit_sell_info">Sell-info submitted</option>
-                <option style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px" value="payout_on_sk">
-                    Payout on SK</option>
+                <option value="payout_on_sk">Payout on SK</option>
+                <option style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px"
+                    value="submit_sell_info">Sell-info submitted</option>
             </select>
             <button id="button" type="submit" value="Submit">Submit</button>
         </form>
@@ -57,13 +57,13 @@
     }
     $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
     as sneaker,
+    sneaker.sku,
     sneaker.age,
     sneaker.size,
     sneaker.buy_shop,
     sneaker.sell_shop ,
     sneaker.buying_price,
     sneaker.selling_price,
-    sneaker.buy_account,
     sneaker.profit_account,
     sneaker.shipping_fee + sneaker.transaction_fee as fees,
     sneaker.rounded_with_hk,sneaker.payout,sneaker.profit,sneaker.payout_on_sk,
@@ -109,13 +109,13 @@ if ($result->num_rows > 0) {
       <tr>
       <th>ID</th>
       <th>Sneaker</th>
+      <th>SKU</th>
       <th>Age</th>
       <th>Size</th>
       <th>Buy shop</th>
       <th>Sell shop</th>
       <th>Buy price</th>
       <th>Sell price</th>
-      <th>Buy account</th>
       <th>Profit account</th>
       <th>Fees</th>
       <th>Rounded HK</th>
@@ -132,13 +132,13 @@ if ($result->num_rows > 0) {
     echo "<tr>
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
+     <td>" . $row['sku'] . "</td>
      <td>" . $row['age'] . "</td>
      <td>" . $row['size'] . "</td>
      <td>" . $row['buy_shop'] . "</td>
      <td>" . $row['sell_shop'] . "</td>
      <td>" . $row['buying_price'] . "</td>
      <td>" . $row['selling_price'] . "</td>
-     <td>" . $row['buy_account'] . "</td>
      <td>" . $row['profit_account'] . "</td>
      <td>" . $row['fees'] . "</td>
      <td>" . $row['rounded_with_hk'] . "</td>
@@ -160,7 +160,7 @@ if ($result->num_rows > 0) {
     <<?php
 echo '<script>
 function searchFunction() {
-  var input, filter, table, tr, td, i, txtValue;
+  var input, filter, table, tr, td, td2, i, txtValue, txtValue2;
   input = document.getElementById("searchInput");
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
@@ -168,9 +168,11 @@ function searchFunction() {
 
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[1];
-    if (td) {
+    td2 = tr[i].getElementsByTagName("td")[2];
+    if (td && td2) {
       txtValue = td.textContent || td.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+      txtValue2 = td2.textContent || td2.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
@@ -178,6 +180,7 @@ function searchFunction() {
     }
   }
 }
+
 
 function approveDelete(){
   var selectedOptionValue = document.getElementById("select");

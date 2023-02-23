@@ -204,6 +204,11 @@ table tr th:nth-child(2) {
   width: 300px !important;
 }
 
+table tr th:nth-child(3) {
+  /*making the first column wider, that Sneaker name fits in one line*/
+  width: 140px !important;
+}
+
 #searchInput {
   height: 33px;
   width: 300px;
