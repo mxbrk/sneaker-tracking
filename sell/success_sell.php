@@ -7,9 +7,6 @@
     <title>STB-Success-Sell</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
 </head>
-<style media="screen">
-
-</style>
 
 <body>
     <div class="category-info">

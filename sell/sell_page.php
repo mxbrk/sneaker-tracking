@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="stylesheet.css">
 </head>
 
-
 <body>
     <div class="main-block">
         <h1>Sell Sneaker</h1>
