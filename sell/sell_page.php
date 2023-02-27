@@ -32,13 +32,6 @@
                 <option value="Ebay Kleinanzeigen">Ebay Kleinanzeigen</option>
                 <option value="Ebay">Ebay</option>
                 <option value="Others">Others</option>
-
-            </select>
-
-            <label id="icon" for="profit_account"></label>
-            <select id="select" name="profit_account" required>
-                <option value="SK">Savings-account</option>
-                <option value="HK">Main-account</option>
             </select>
 
             <label id="icon" for="selling_price"></label>
@@ -58,13 +51,6 @@
             <label id="icon" for="profit"></label>
             <input type="number" name="profit" id="profit" placeholder="Profit" step="1" required />
 
-            <label id="icon" for="rounded_with_hk"></label>
-            <input type="number" name="rounded_with_hk" id="rounded_with_hk" placeholder="Rounded with main-account"
-                step="1" required />
-
-            <label id="icon" for="payout_on_sk"></label>
-            <input type="number" name="payout_on_sk" id="payout_on_sk" placeholder="Payout on savings-account" step="1"
-                required />
             <div>
                 <br>
                 <button id="button" type="submit" value="Submit">Submit</button>
@@ -79,7 +65,7 @@
         console.log((+document.sell_info.selling_price.value - (+document.sell_info.shipping_fee.value + +document.sell_info.transaction_fee.value) !== +document.sell_info.payout.value));
         console.log((+document.sell_info.rounded_with_hk.value + +document.sell_info.profit.value) !== +document.sell_info.payout_on_sk.value);
         debugger;
-        */
+        
     function validate() {
         if ((+document.sell_info.selling_price.value - (+document.sell_info.shipping_fee.value + +document.sell_info
                 .transaction_fee.value) !== +document.sell_info.payout.value) || (+document.sell_info.rounded_with_hk
@@ -90,6 +76,7 @@
             return false;
         }
     }
+    */
     </script>
 
 </html>
