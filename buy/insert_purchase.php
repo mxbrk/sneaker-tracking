@@ -22,8 +22,9 @@ $sold = 0; //mysqli_real_escape_string($link, $_REQUEST['0']);
 $size = mysqli_real_escape_string($link, $_REQUEST['size']);
 // Attempt insert query execution
 
-$sql = "INSERT INTO sneaker (brand, sku, modell, colorway, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, profit_account, shipping_fee, transaction_fee, rounded_with_hk, payout, profit, payout_on_sk)
-VALUES ('$brand', '$sku', '$modell', '$colorway', '$age', '$buy_shop', '$date', '$buying_price', '$sold', '$size', null, null, null, null, null, null, null, null, null)";
+$sql = "INSERT INTO sneaker (brand, sku, modell, colorway, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, shipping_fee, transaction_fee, payout, profit)
+VALUES ('$brand', '$sku', '$modell', '$colorway', '$age', '$buy_shop', '$date', '$buying_price',
+   '$sold', '$size', null, null, null, null, null, null)";
 
 if(mysqli_query($link, $sql)){
    header('Location: success_buy.php');
@@ -32,8 +33,8 @@ if(mysqli_query($link, $sql)){
    echo "ERROR: Not able to execute $sql. " . mysqli_error($link);
 }
 
-$sql2 = "INSERT INTO progress (status, arrived, listing_item, sold_item, shipped_to_buyer, payout, submit_sell_info)
-VALUES (2,0,0,0,0,0)";
+$sql2 = "INSERT INTO progress (status,payed, arrived, listing_item, sold_item, shipped_to_buyer, submit_sell_info, profit)
+VALUES (2,1,0,0,0,0,0,0)";
 if(mysqli_query($link, $sql2)){
    echo "Succes";
 } else{
