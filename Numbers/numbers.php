@@ -30,15 +30,15 @@
             FORMAT(sum(payout),0, 'de_DE') as payout,
             FORMAT(sum(profit),0, 'de_DE') as profit,
             count(sneakerID) as amount
-            FROM sneaker ";
+            FROM sneaker";
 
             $result = $conn->query($sql);
           if ($result->num_rows > 0) {
           // output data of each row
           while($row = $result->fetch_assoc()) {
             echo "<hr>" .
-                 "Invest: " . $row["buying_price"]. " €  " . "(".$row["amount"]." pairs)"."<br>" ."<br>" .
-                 "Payout (complete timerange): " . $row["payout"]. " €" . "<br>". "<br>";
+                 "Invest  (since 01.01.2021): " . $row["buying_price"]. " €  " . "(".$row["amount"]." pairs)"."<br>" ."<br>" .
+                 "Payout  (since 01.01.2021): " . $row["payout"]. " €" . "<br>". "<br>";
                }
            } else {
              echo "0 results";
@@ -67,7 +67,7 @@
            FORMAT(sum(profit),0, 'de_DE') as profit,
            FORMAT(sum(buying_price),0, 'de_DE') as buying_price,
            ROUND( ((sum(profit) / sum(buying_price)) * 100), 2) as roi,
-           FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, '2023-01-01', now()) +1), 0),0, 'de_DE') as avg_profit_month,
+           FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, '2022-01-01', now()) +1), 0),0, 'de_DE') as avg_profit_month
            /*Implement AVG Bought/Sold pairs per month*/
            FROM sneaker WHERE sold = 1  AND sell_date >= '2023-01-01'";
 
@@ -86,15 +86,15 @@
                "  (Selling price can differ up to 5% and" ."<br>".
                "  fees can differ up to 10%)" ."<br>" .
                "  <hr>" .
-               "  Complete statistics:"."<br>" ."<br>" .
-               "  Avg. profit/month: " . $row["avg_profit_month"]. " €" . "<br>" . "<br>" .
+               "  Statistics:"."<br>" ."<br>" .
+               "  Avg. profit/month: " . $row["avg_profit_month"]. " €" . "<br>" . "<br>";
           }
         } else {
           echo "0 results";
         }
 
         $sql4 = "SELECT
-        ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, '2023-01-01', now()) +1), 1) as avg_bought_month
+        ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, '2022-01-01', now()) +1), 1) as avg_bought_month
         FROM sneaker WHERE buy_date >= '2023-01-01'";
 
         $result4 = $conn->query($sql4);
@@ -107,7 +107,7 @@
                echo "0 results";
              }
          $sql5 = "SELECT
-         ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, '2023-01-01', now()) +1), 1) as avg_sold_month
+         ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, '2022-01-01', now()) +1), 1) as avg_sold_month
          FROM sneaker WHERE sold = 1 AND sell_date >= '2023-01-01'";
 
          $result5 = $conn->query($sql5);
