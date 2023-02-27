@@ -29,14 +29,14 @@ shipping_fee = '$shipping_fee',
 transaction_fee = '$transaction_fee',
 sold = '1',
 payout = '$payout',
-profit = '$profit',
+profit = '$profit'
 WHERE sneakerID = '$sneakerID'";
 
 if(mysqli_query($link, $sql)){
    header('Location: success_sell.php');
    echo "Succes";
 } else{
-   echo "ERROR: Could not able to execute $sql. " . mysqli_error($link);
+   echo "ERROR: Could not able to execute:  $sql. " . mysqli_error($link);
 }
 
 // Close connection
