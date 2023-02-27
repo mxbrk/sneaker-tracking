@@ -145,11 +145,11 @@ table {
 
 .table {
   /*defining properties for div surrounding the talbe*/
-  width: 1800px;
+  width: fit-content;
   height: 600px;
   overflow-y: scroll;
   border-radius: 5px;
-  margin: 30px;
+  margin: 0 auto; /*davor 30px*/
   background: #15172b;
   table-layout: fixed;
   margin-left: auto;

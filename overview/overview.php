@@ -151,7 +151,7 @@ if ($result->num_rows > 0) {
   $conn->close();
   ?>
     </div>
-    <<?php
+    <?php
 echo '<script>
 function searchFunction() {
   var input, filter, table, tr, td, td2, i, txtValue, txtValue2;
@@ -190,6 +190,7 @@ debugger;
     }
 }
 </script>'
-?> </body>
+?>
+</body>
 
 </html>
