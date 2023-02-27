@@ -21,14 +21,10 @@
                   `size` float DEFAULT NULL,
                   `buying_price` int(11) DEFAULT NULL,
                   `selling_price` int(11) DEFAULT NULL,
-                  `buy_account` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
-                  `profit_account` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `shipping_fee` int(11) DEFAULT NULL,
                   `transaction_fee` int(11) DEFAULT NULL,
-                  `rounded_with_hk` int(11) DEFAULT NULL,
                   `payout` int(11) DEFAULT NULL,
                   `profit` int(11) DEFAULT NULL,
-                  `payout_on_sk` int(11) DEFAULT NULL,
                   PRIMARY KEY (`sneakerID`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=398 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>

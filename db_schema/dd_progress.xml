@@ -21,10 +21,6 @@
     <database name="db_name">
         <!-- Tabelle dd_progress -->
         <table name="dd_progress">
-            <column name="id">2</column>
-            <column name="name">transfer_sk_to_hk</column>
-        </table>
-        <table name="dd_progress">
             <column name="id">4</column>
             <column name="name">arrived</column>
         </table>
@@ -42,7 +38,7 @@
         </table>
         <table name="dd_progress">
             <column name="id">8</column>
-            <column name="name">payout_on_sk</column>
+            <column name="name">payout</column>
         </table>
         <table name="dd_progress">
             <column name="id">9</column>

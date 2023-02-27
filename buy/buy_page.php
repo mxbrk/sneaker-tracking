@@ -72,15 +72,7 @@
                 <option value="SNKRS">SNKRS</option>
                 <option value="StockX">StockX</option>
                 <option value="Others">Others</option>
-
             </select>
-
-            <label id="icon" for="buy_account"></label>
-            <select id="select" name="buy_account" required>
-                <option value="SK">Savings-account</option>
-                <option value="HK">Main-account</option>
-            </select>
-
 
             <label id="icon" for="date"></label>
             <input type="text" name="date" id="date" name="date" placeholder="Buy date"

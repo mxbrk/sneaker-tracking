@@ -9,12 +9,11 @@
                 CREATE TABLE `progress` (
                   `sneakerID` int(11) NOT NULL AUTO_INCREMENT,
                   `status` int(11) NOT NULL,
-                  `transfer_sk_to_hk` tinyint(1) NOT NULL,
                   `arrived` tinyint(1) NOT NULL,
                   `listing_item` tinyint(1) NOT NULL,
                   `sold_item` tinyint(1) NOT NULL,
                   `shipped_to_buyer` tinyint(1) NOT NULL,
-                  `payout_on_sk` tinyint(1) NOT NULL,
+                  `payout` tinyint(1) NOT NULL,
                   `submit_sell_info` tinyint(1) NOT NULL,
                   PRIMARY KEY (`sneakerID`)
                 ) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;

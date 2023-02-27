@@ -32,12 +32,12 @@
             <select id="select" name="status">
                 <option value="" disabled selected>Select the status</option>
                 <option value="delete_id">Delete ID</option>
-                <option value="transfer_sk_to_hk">Transfered SK to HK</option>
+                <option value="payed">Payed</option>
                 <option value="arrived">Arrived</option>
                 <option value="listing_item">Listed for selling</option>
                 <option value="sold_item">Sold</option>
                 <option value="shipped_to_buyer">Shipped to buyer</option>
-                <option value="payout_on_sk">Payout on SK</option>
+                <option value="payout">Payout</option>
                 <option style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px"
                     value="submit_sell_info">Sell-info submitted</option>
             </select>
@@ -64,17 +64,17 @@
     sneaker.sell_shop ,
     sneaker.buying_price,
     sneaker.selling_price,
-    sneaker.profit_account,
     sneaker.shipping_fee + sneaker.transaction_fee as fees,
-    sneaker.rounded_with_hk,sneaker.payout,sneaker.profit,sneaker.payout_on_sk,
+    sneaker.payout,
+    sneaker.profit,
     CASE progress.status
      WHEN 9 THEN 'sell info submitted'
-     WHEN 8 THEN 'payout on SK'
+     WHEN 8 THEN 'payout'
      WHEN 7 THEN 'shipped'
      WHEN 6 THEN 'sold'
      WHEN 5 THEN 'listed'
      WHEN 4 THEN 'arrived'
-     WHEN 2 THEN 'payed (HK -> SK)'
+     WHEN 2 THEN 'payed'
     ELSE  0
     END as statusName,
     CASE progress.status
@@ -116,12 +116,9 @@ if ($result->num_rows > 0) {
       <th>Sell shop</th>
       <th>Buy price</th>
       <th>Sell price</th>
-      <th>Profit account</th>
       <th>Fees</th>
-      <th>Rounded HK</th>
       <th>Payout</th>
       <th>Profit</th>
-      <th>Payout SK</th>
       <th style="width:120px">Status</th>
       <th style="width:150px" >Progress</th>
       </tr>';
@@ -139,12 +136,9 @@ if ($result->num_rows > 0) {
      <td>" . $row['sell_shop'] . "</td>
      <td>" . $row['buying_price'] . "</td>
      <td>" . $row['selling_price'] . "</td>
-     <td>" . $row['profit_account'] . "</td>
      <td>" . $row['fees'] . "</td>
-     <td>" . $row['rounded_with_hk'] . "</td>
      <td>" . $row['payout'] . "</td>
-     <td>" . $row['profit'] . "</td>
-     <td>" . $row['payout_on_sk'] . '</td>
+     <td>" . $row['profit'] . '</td>
      <td style="font-size:14px">' . $row['statusName'] . '</td>
      <td>' .'<div style="width:"100%" class="light-grey"><div class="' .$row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>'.
      "</td>
