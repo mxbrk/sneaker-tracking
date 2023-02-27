@@ -32,11 +32,12 @@
             <select id="select" name="status">
                 <option value="" disabled selected>Select the status</option>
                 <option value="delete_id">Delete ID</option>
+                <option value="payed">Payed</option>
                 <option value="arrived">Arrived</option>
                 <option value="listing_item">Listed for selling</option>
                 <option value="sold_item">Sold</option>
                 <option value="shipped_to_buyer">Shipped to buyer</option>
-                <option value="payout">Payout on SK</option>
+                <option value="payout">Payout</option>
                 <option style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px"
                     value="submit_sell_info">Sell-info submitted</option>
             </select>
@@ -64,6 +65,8 @@
     sneaker.buying_price,
     sneaker.selling_price,
     sneaker.shipping_fee + sneaker.transaction_fee as fees,
+    sneaker.payout,
+    sneaker.profit,
     CASE progress.status
      WHEN 9 THEN 'sell info submitted'
      WHEN 8 THEN 'payout'
@@ -113,7 +116,6 @@ if ($result->num_rows > 0) {
       <th>Sell shop</th>
       <th>Buy price</th>
       <th>Sell price</th>
-      <th>Profit account</th>
       <th>Fees</th>
       <th>Payout</th>
       <th>Profit</th>
@@ -136,7 +138,7 @@ if ($result->num_rows > 0) {
      <td>" . $row['selling_price'] . "</td>
      <td>" . $row['fees'] . "</td>
      <td>" . $row['payout'] . "</td>
-     <td>" . $row['profit'] . "</td>
+     <td>" . $row['profit'] . '</td>
      <td style="font-size:14px">' . $row['statusName'] . '</td>
      <td>' .'<div style="width:"100%" class="light-grey"><div class="' .$row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>'.
      "</td>
