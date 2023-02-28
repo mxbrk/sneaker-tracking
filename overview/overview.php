@@ -6,6 +6,8 @@
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STB-Overview</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
+    <script src="..\js\searchFunction.js"></script>
+    <script src="..\js\js\deleteID.js"></script>
 </head>
 
 <body>
@@ -152,7 +154,7 @@ if ($result->num_rows > 0) {
   ?>
     </div>
     <?php
-echo '<script>
+/*echo '<script>
 function searchFunction() {
   var input, filter, table, tr, td, td2, i, txtValue, txtValue2;
   input = document.getElementById("searchInput");
@@ -189,7 +191,7 @@ debugger;
       }
     }
 }
-</script>'
+</script>'*/
 ?>
 </body>
 
