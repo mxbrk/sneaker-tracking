@@ -18,8 +18,12 @@
     <!--
     - Datenbank: 'db_stbln'
     -->
-    <database name="db_name">
+    <database name="db_stbln">
         <!-- Tabelle dd_progress -->
+        <table name="dd_progress">
+            <column name="id">2</column>
+            <column name="name">payed</column>
+        </table>
         <table name="dd_progress">
             <column name="id">4</column>
             <column name="name">arrived</column>

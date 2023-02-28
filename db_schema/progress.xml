@@ -9,14 +9,15 @@
                 CREATE TABLE `progress` (
                   `sneakerID` int(11) NOT NULL AUTO_INCREMENT,
                   `status` int(11) NOT NULL,
+                  `payed` tinyint(1) NOT NULL,
                   `arrived` tinyint(1) NOT NULL,
                   `listing_item` tinyint(1) NOT NULL,
                   `sold_item` tinyint(1) NOT NULL,
                   `shipped_to_buyer` tinyint(1) NOT NULL,
-                  `payout` tinyint(1) NOT NULL,
                   `submit_sell_info` tinyint(1) NOT NULL,
+                  `payout` tinyint(4) NOT NULL,
                   PRIMARY KEY (`sneakerID`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=403 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=407 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>
