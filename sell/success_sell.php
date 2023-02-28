@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 
 <head>
-    <link rel='stylesheet' media='screen' href='..\CSS\sell\success_sell.css'>
+    <link rel='stylesheet' media='screen' href='..\css\sell\success_sell.css'>
     <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STB-Success-Sell</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
