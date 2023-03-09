@@ -18,7 +18,7 @@
     <!--
     - Datenbank: 'db_stbln'
     -->
-    <database name="db_stbln">
+    <database name="db_name">
         <!-- Tabelle dd_progress -->
         <table name="dd_progress">
             <column name="id">2</column>
