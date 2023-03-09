@@ -79,7 +79,7 @@
                 value="<?php echo date('Y-m-d'); ?>" required onfocus="(this.type='date')" />
 
             <label id="icon" for="buying_price"></label>
-            <input type="number" name="buying_price" id="buying_price" placeholder="Price" step="1" required />
+            <input type="number" name="buying_price" id="buying_price" placeholder="Price" step="0.01" required />
             <div><br>
                 <button id="button" type="submit" value="Submit">Submit</button>
             </div>

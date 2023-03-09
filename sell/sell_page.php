@@ -17,7 +17,7 @@
         <form action="insert_sell.php" name="sell_info" method="POST" onsubmit="return validate();">
 
             <label id="icon" for="sneakerID"></label>
-            <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required />
+            <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="0.01" required />
 
             <label id="icon" for="sell_date"></label>
             <input type="text" name="sell_date" id="sell_date" name="sell_date" placeholder="Sell date"
@@ -35,21 +35,22 @@
             </select>
 
             <label id="icon" for="selling_price"></label>
-            <input type="number" name="selling_price" id="selling_price" placeholder="Selling price" step="1"
+            <input type="number" name="selling_price" id="selling_price" placeholder="Selling price" step="0.01"
                 required />
 
             <label id="icon" for="payout"></label>
-            <input type="number" name="payout" id="payout" placeholder="Payout" step="1" required />
+            <input type="number" name="payout" id="payout" placeholder="Payout" step="0.01" required />
 
             <label id="icon" for="shipping_fee"></label>
-            <input type="number" name="shipping_fee" id="shipping_fee" placeholder="Shipping fee" step="1" required />
+            <input type="number" name="shipping_fee" id="shipping_fee" placeholder="Shipping fee" step="0.01"
+                required />
 
             <label id="icon" for="transaction_fee"></label>
-            <input type="number" name="transaction_fee" id="transaction_fee" placeholder="Transaction fee" step="1"
+            <input type="number" name="transaction_fee" id="transaction_fee" placeholder="Transaction fee" step="0.01"
                 required />
 
             <label id="icon" for="profit"></label>
-            <input type="number" name="profit" id="profit" placeholder="Profit" step="1" required />
+            <input type="number" name="profit" id="profit" placeholder="Profit" step="0.01" required />
 
             <div>
                 <br>
