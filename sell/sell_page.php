@@ -17,7 +17,7 @@
         <form action="insert_sell.php" name="sell_info" method="POST" onsubmit="return validate();">
 
             <label id="icon" for="sneakerID"></label>
-            <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="0.01" required />
+            <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required />
 
             <label id="icon" for="sell_date"></label>
             <input type="text" name="sell_date" id="sell_date" name="sell_date" placeholder="Sell date"
