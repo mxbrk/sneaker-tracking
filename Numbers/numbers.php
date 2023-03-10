@@ -20,10 +20,6 @@
               die("Connection failed: " . $conn->connect_error);
             }
 
-            $data_from = mysqli_real_escape_string($link, $_REQUEST['data_from']);
-            $data_to = mysqli_real_escape_string($link, $_REQUEST['data_to']);
-
-
             $sql = "SELECT FORMAT(SUM(buying_price),0, 'de_DE')as buying_price,
             FORMAT(sum(selling_price),0, 'de_DE') as selling_price,
             FORMAT(sum(shipping_fee) + sum(transaction_fee),0, 'de_DE') as fees,
