@@ -14,7 +14,6 @@ if ($conn->connect_error) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
 //        $_SESSION["sqlQuery"] = $sneakerID;
-
      $_SESSION["sqlQuery"] = $row["brand"];
       header('Location: edit_page.php');
 
