@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -11,12 +14,15 @@
 </head>
 
 <body>
-    <?php
-    //here follows the business logic for fetching the data first
-    ?>
     <div class="main-block">
-        <h1>Buy Sneaker</h1>
-        <form action="insert_purchase.php" method="POST">
+        <?php
+        include '../db_config.php';
+
+        echo $_SESSION['sqlQuery'];
+        ?>
+        <h1>Edit Sneaker info</h1>
+
+        <form action="insert_update.php" method="POST">
             <label id="icon" for="brand"></label>
             <select id="select" name="brand" required>
                 <option value="" disabled selected>Brand</option>
@@ -91,6 +97,7 @@
             <input onclick="window.location.href='../index.html'" id="button_reset" type="button" value="Discard" />
         </form>
     </div>
+
 </body>
 
 </html>
