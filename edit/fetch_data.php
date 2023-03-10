@@ -8,13 +8,12 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }       
     $sneakerID = mysqli_real_escape_string($conn, $_REQUEST['sneakerID']);
-    $sql = "SELECT brand FROM sneaker WHERE sneakerID =1;";
+    $sql = "SELECT sneakerID FROM sneaker WHERE sneakerID =" .  "$sneakerID" .";";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-//        $_SESSION["sqlQuery"] = $sneakerID;
-     $_SESSION["sqlQuery"] = $row["brand"];
+     $_SESSION["sql"] = array();
       header('Location: edit_page.php');
 
          }
