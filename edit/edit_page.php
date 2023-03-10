@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <?php
+    //here follows the business logic for fetching the data first
+    ?>
     <div class="main-block">
         <h1>Buy Sneaker</h1>
         <form action="insert_purchase.php" method="POST">
