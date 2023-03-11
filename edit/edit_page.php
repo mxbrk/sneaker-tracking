@@ -20,7 +20,7 @@ session_start();
         ?>
         <h1>Edit Sneaker info</h1>
 
-        <form action="update.php" method="POST">
+        <form id="edit_from" action="update.php" method="POST">
             <label id="icon" for="brand"></label>
             <select id="select" name="brand" required>
                 <option <?php if($sneakerInfo[brand] == 'Brand'){echo('selected="selected"');}?>value="" disabled
