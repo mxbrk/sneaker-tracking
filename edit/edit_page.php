@@ -10,7 +10,8 @@ session_start();
     <title>STB-Edit</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
+    <script src="..\js\clearForm.js"></script>
+
 </head>
 
 <body>
@@ -20,7 +21,7 @@ session_start();
         ?>
         <h1>Edit Sneaker info</h1>
 
-        <form id="edit_from" action="update.php" method="POST">
+        <form id="edit_form" action="update.php" method="POST">
             <label id="icon" for="brand"></label>
             <select id="select" name="brand" required>
                 <option <?php if($sneakerInfo[brand] == 'Brand'){echo('selected="selected"');}?>value="" disabled
@@ -131,14 +132,13 @@ session_start();
             <input type="number" name="buying_price" id="buying_price" value="<?php echo $sneakerInfo[buying_price] ?>"
                 step="0.01" required />
             <div><br>
-                <button id="button" type="submit" value="Submit">Submit</button>
+                <button id="button" type="submit" onsubmit="clearForm()" value="Submit">Edit</button>
             </div>
         </form>
         <form>
             <input onclick="window.location.href='../index.html'" id="button_reset" type="button" value="Discard" />
         </form>
     </div>
-
 </body>
 
 </html>

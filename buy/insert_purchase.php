@@ -33,8 +33,7 @@ if(mysqli_query($link, $sql)){
    echo "ERROR: Not able to execute $sql. " . mysqli_error($link);
 }
 
-$sql2 = "INSERT INTO progress (status,payed, arrived, listing_item, sold_item, shipped_to_buyer, submit_sell_info, profit)
-VALUES (2,1,0,0,0,0,0,0)";
+$sql2 = "INSERT INTO progress (`status`, payed, arrived, listing_item, sold_item, shipped_to_buyer, submit_sell_info, payout) VALUES (2,1,0,0,0,0,0,0)";
 if(mysqli_query($link, $sql2)){
    echo "Succes";
 } else{

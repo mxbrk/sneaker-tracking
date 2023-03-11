@@ -7,7 +7,7 @@
     <title>STB-Overview</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <script src="..\js\searchFunction.js"></script>
-    <script src="..\js\js\deleteID.js"></script>
+    <script src="..\js\deleteID.js"></script>
 </head>
 
 <body>
@@ -153,46 +153,6 @@ if ($result->num_rows > 0) {
   $conn->close();
   ?>
     </div>
-    <?php
-/*echo '<script>
-function searchFunction() {
-  var input, filter, table, tr, td, td2, i, txtValue, txtValue2;
-  input = document.getElementById("searchInput");
-  filter = input.value.toUpperCase();
-  table = document.getElementById("myTable");
-  tr = table.getElementsByTagName("tr");
-
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[1];
-    td2 = tr[i].getElementsByTagName("td")[2];
-    if (td && td2) {
-      txtValue = td.textContent || td.innerText;
-      txtValue2 = td2.textContent || td2.innerText;
-      if (txtValue.toUpperCase().indexOf(filter) > -1 || txtValue2.toUpperCase().indexOf(filter) > -1) {
-        tr[i].style.display = "";
-      } else {
-        tr[i].style.display = "none";
-      }
-    }
-  }
-}
-
-
-function approveDelete(){
-  var selectedOptionValue = document.getElementById("select");
-  var value = selectedOptionValue.value;
-  var sneakerID = document.getElementById("sneakerID").value;
-debugger;
-    if (value === "delete_id"){
-      if (confirm("Do you want to delete " + sneakerID + " ?")) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-}
-</script>'*/
-?>
 </body>
 
 </html>
