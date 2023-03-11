@@ -21,7 +21,7 @@
             <li><a href="/sell/sell_page.php">Sell</a> </li>
             <li><a href="/numbers/numbers.php">Numbers</a> </li>
             <li><a href="/overview/overview.php">Overview</a> </li>
-            <li><a href="/progress/progress.php">Progress</a> </li>
+            <li><a href="/edit/edit_landing_page.php">Edit</a> </li>
         </ul>
     </nav>
     <div class="wrapperForm">
