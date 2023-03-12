@@ -8,6 +8,8 @@
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <script src="..\js\searchFunction.js"></script>
     <script src="..\js\deleteID.js"></script>
+    <script src="..\js\calcFees.js"></script>
+
 </head>
 
 <body>
@@ -24,13 +26,9 @@
             <li><a href="/edit/edit_landing_page.php">Edit</a> </li>
         </ul>
     </nav>
-    <div class="wrapperForm">
+    <div>
         <form id="submitForm" action="update_progress.php" onsubmit="return approveDelete(this)" method="POST">
-
-            <label id="icon" for="sneakerID"></label>
             <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required />
-            <label id="icon" for="status"></label>
-
             <select id="select" name="status">
                 <option value="" disabled selected>Select the status</option>
                 <option value="delete_id">Delete ID</option>
@@ -45,9 +43,13 @@
             </select>
             <button id="button" type="submit" value="Submit">Submit</button>
         </form>
-    </div>
 
-    <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker...">
+        <form id="calcFeesForm">
+            <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker">
+            <input type="number" id="calcFeesInput" name="calcFeesInput" placeholder="Net-Price" step="0.01" required>
+            <button id="button" type="button" onclick="calcFees()">Calculate</button>
+        </form>
+    </div>
 
     <div class="table">
         <?php
