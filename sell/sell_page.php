@@ -7,7 +7,6 @@
     <title>STB-Sell</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
-    <link rel="stylesheet" href="stylesheet.css">
 </head>
 
 <body>
