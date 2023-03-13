@@ -139,7 +139,7 @@ if ($result->num_rows > 0) {
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
      <td>" . $row['sku'] . "</td>
-     <td>" . $row['condition'] . "</td>
+     <td>" . $row['itemCondition'] . "</td>
      <td>" . $row['age'] . "</td>
      <td>" . $row['size'] . "</td>
      <td>" . $row['buy_shop'] . "</td>

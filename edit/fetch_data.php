@@ -17,6 +17,7 @@ if ($conn->connect_error) {
         "brand" => $row["brand"],
         "sku" => $row["sku"],
         "modell" => $row["modell"],
+        "condition" => $row["itemCondition"],
         "age" => $row["age"],
         "colorway" => $row["colorway"],
         "buy_shop" => $row["buy_shop"],

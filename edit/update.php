@@ -15,6 +15,7 @@ $brand = mysqli_real_escape_string($link, $_REQUEST['brand']);
 $sku = mysqli_real_escape_string($link, $_REQUEST['sku']);
 $modell = mysqli_real_escape_string($link, $_REQUEST['modell']);
 $colorway = mysqli_real_escape_string($link, $_REQUEST['colorway']);
+$condition = mysqli_real_escape_string($link, $_REQUEST['itemCondition']);
 $age = mysqli_real_escape_string($link, $_REQUEST['age']);
 $buy_shop = mysqli_real_escape_string($link, $_REQUEST['buy_shop']);
 $date = mysqli_real_escape_string($link, $_REQUEST['date']);
@@ -23,7 +24,7 @@ $sold = 0; //mysqli_real_escape_string($link, $_REQUEST['0']);
 $size = mysqli_real_escape_string($link, $_REQUEST['size']);
 // Attempt insert query execution
 $sneakerInfo = $_SESSION['sql'];
-$sql = "UPDATE sneaker SET brand = '$brand', sku = '$sku', modell = '$modell', colorway = '$colorway', age = '$age', buy_shop = '$buy_shop', buy_date = '$date', buying_price = '$buying_price',  size = '$size' WHERE sneakerID =" . $sneakerInfo[sneakerID] . ";";
+$sql = "UPDATE sneaker SET brand = '$brand', sku = '$sku', modell = '$modell', colorway = '$colorway', itemCondition = '$condition', age = '$age', buy_shop = '$buy_shop', buy_date = '$date', buying_price = '$buying_price',  size = '$size' WHERE sneakerID =" . $sneakerInfo[sneakerID] . ";";
 
 if(mysqli_query($link, $sql)){
    header('Location: ..\overview\overview.php');

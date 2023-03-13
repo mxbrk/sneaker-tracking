@@ -1,4 +1,5 @@
 <?php
+session_destroy();
 session_start();
 ?>
 <!DOCTYPE html>
@@ -49,6 +50,16 @@ session_start();
             <label id="icon" for="colorway"></label>
             <input type="text" name="colorway" id="colorway" value="<?php echo $sneakerInfo[colorway] ?>" required />
 
+            <label id="icon" for="condition"></label>
+            <select id="select" name="condition">
+                <option <?php if($sneakerInfo[condition] == 'condition'){echo('selected="selected"');}?>value=""
+                    disabled selected>Brand</option>
+                <option
+                    <?php if($sneakerInfo[condition] == 'deadstock'){echo('selected="selected"');}?>value="deadstock">
+                    Deadstock</option>
+                <option <?php if($sneakerInfo[condition] == 'used'){echo('selected="selected"');}?>value="used">Used
+                </option>
+            </select>
 
             <label id="icon" for="age"></label>
             <select id="select" name="age">
