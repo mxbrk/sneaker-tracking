@@ -11,6 +11,7 @@
                   `brand` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `sku` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `modell` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                  `itemCondition` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `age` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `colorway` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `buy_shop` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
