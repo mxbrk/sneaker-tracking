@@ -1,5 +1,4 @@
 <?php
-session_destroy();
 session_start();
 ?>
 <!DOCTYPE html>
@@ -52,14 +51,13 @@ session_start();
 
             <label id="icon" for="condition"></label>
             <select id="select" name="condition">
-                <option <?php if($sneakerInfo[condition] == 'condition'){echo('selected="selected"');}?>value=""
-                    disabled selected>Brand</option>
                 <option
                     <?php if($sneakerInfo[condition] == 'deadstock'){echo('selected="selected"');}?>value="deadstock">
                     Deadstock</option>
                 <option <?php if($sneakerInfo[condition] == 'used'){echo('selected="selected"');}?>value="used">Used
                 </option>
             </select>
+
 
             <label id="icon" for="age"></label>
             <select id="select" name="age">
@@ -135,9 +133,10 @@ session_start();
                     Others</option>
             </select>
 
-            <label id="icon" for="date"></label>
-            <input type="text" name="date" id="date" name="date" value="<?php echo $sneakerInfo[buy_date] ?>"
-                value="<?php echo date('Y-m-d'); ?>" required onfocus="(this.type='date')" />
+            <label id="icon" for="buy_date"></label>
+            <input type="text" name="buy_date" id="buy_date" name="buy_date"
+                value="<?php echo $sneakerInfo[buy_date] ?>" value="<?php echo date('Y-m-d'); ?>" required
+                onfocus="(this.type='date')" />
 
             <label id="icon" for="buying_price"></label>
             <input type="number" name="buying_price" id="buying_price" value="<?php echo $sneakerInfo[buying_price] ?>"
