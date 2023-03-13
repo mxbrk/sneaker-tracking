@@ -14,6 +14,7 @@ $brand = mysqli_real_escape_string($link, $_REQUEST['brand']);
 $sku = mysqli_real_escape_string($link, $_REQUEST['sku']);
 $modell = mysqli_real_escape_string($link, $_REQUEST['modell']);
 $colorway = mysqli_real_escape_string($link, $_REQUEST['colorway']);
+$condition = mysqli_real_escape_string($link, $_REQUEST['condition']);
 $age = mysqli_real_escape_string($link, $_REQUEST['age']);
 $buy_shop = mysqli_real_escape_string($link, $_REQUEST['buy_shop']);
 $date = mysqli_real_escape_string($link, $_REQUEST['date']);
@@ -22,8 +23,8 @@ $sold = 0; //mysqli_real_escape_string($link, $_REQUEST['0']);
 $size = mysqli_real_escape_string($link, $_REQUEST['size']);
 // Attempt insert query execution
 
-$sql = "INSERT INTO sneaker (brand, sku, modell, colorway, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, shipping_fee, transaction_fee, payout, profit)
-VALUES ('$brand', '$sku', '$modell', '$colorway', '$age', '$buy_shop', '$date', '$buying_price',
+$sql = "INSERT INTO sneaker (brand, sku, modell, colorway, itemCondition, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, shipping_fee, transaction_fee, payout, profit)
+VALUES ('$brand', '$sku', '$modell', '$colorway', '$condition', '$age', '$buy_shop', '$date', '$buying_price',
    '$sold', '$size', null, null, null, null, null, null)";
 
 if(mysqli_query($link, $sql)){

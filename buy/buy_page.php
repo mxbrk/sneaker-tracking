@@ -32,6 +32,12 @@
             <label id="icon" for="colorway"></label>
             <input type="text" name="colorway" id="colorway" placeholder="Colorway" required />
 
+            <label id="icon" for="condition"></label>
+            <select id="select" name="condition">
+                <option value="" disabled selected>Condition</option>
+                <option value="deadstock">Deadstock</option>
+                <option value="used">Used</option>
+            </select>
 
             <label id="icon" for="age"></label>
             <select id="select" name="age">

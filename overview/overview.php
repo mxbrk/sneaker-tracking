@@ -62,6 +62,10 @@
     $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
     as sneaker,
     sneaker.sku,
+    CASE sneaker.itemCondition
+    WHEN 'deadstock' THEN 'DS' 
+    ELSE 'Used' 
+    END as itemCondition,
     sneaker.age,
     sneaker.size,
     sneaker.buy_shop,
@@ -114,6 +118,7 @@ if ($result->num_rows > 0) {
       <th>ID</th>
       <th>Sneaker</th>
       <th>SKU</th>
+      <th>Condition</th>
       <th>Age</th>
       <th>Size</th>
       <th>Buy shop</th>
@@ -134,6 +139,7 @@ if ($result->num_rows > 0) {
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
      <td>" . $row['sku'] . "</td>
+     <td>" . $row['condition'] . "</td>
      <td>" . $row['age'] . "</td>
      <td>" . $row['size'] . "</td>
      <td>" . $row['buy_shop'] . "</td>
