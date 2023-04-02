@@ -33,8 +33,7 @@
             <input type="text" name="colorway" id="colorway" placeholder="Colorway" required />
 
             <label id="icon" for="condition"></label>
-            <select id="select" name="condition">
-                <option value="" disabled selected>Condition</option>
+            <select id="select" name="condition" required>
                 <option value="deadstock">Deadstock</option>
                 <option value="used">Used</option>
             </select>
