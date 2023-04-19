@@ -162,7 +162,8 @@ if ($result->num_rows > 0) {
   ?>
     </div>
     <div>
-        <p><span style='color:red;'>*</span> <span style='color:white;'>= These sneakers are from deposit and only the
+        <p><span style='color:red;'>*</span> <span style='color:white;'>= These sneakers are from the deposit and only
+                the
                 profit remains on the corporate bank account.
                 <br> The amount of the purchase price goes back to SK with an indication of the old ID.</span> </p>
     </div>
