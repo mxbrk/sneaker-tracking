@@ -134,7 +134,7 @@ if ($result->num_rows > 0) {
 
  // output data of each row
   while($row = $result->fetch_assoc()) {
-
+    $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);    
     echo "<tr>
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
@@ -160,6 +160,11 @@ if ($result->num_rows > 0) {
   }
   $conn->close();
   ?>
+    </div>
+    <div>
+        <p><span style='color:red;'>*</span> <span style='color:white;'>= These sneakers are from deposit and only the
+                profit remains on the corporate bank account.
+                <br> The amount of the purchase price goes back to SK with an indication of the old ID.</span> </p>
     </div>
 </body>
 
