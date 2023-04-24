@@ -7,13 +7,15 @@
     <title>STB-Sell</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <script src="..\js\validateSellForm.js"></script>
+
 </head>
 
 <body>
     <div class="main-block">
         <h1>Sell Sneaker</h1>
 
-        <form action="insert_sell.php" name="sell_info" method="POST" onsubmit="return validate();">
+        <form action="insert_sell.php" name="sell_info" method="POST" onsubmit="validateSellForm();">
 
             <label id="icon" for="sneakerID"></label>
             <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required />
@@ -60,23 +62,5 @@
             <input onclick="window.location.href='../index.html'" id="button_reset" type="button" value="Discard" />
         </form>
     </div>
-    <script>
-    /*
-        console.log((+document.sell_info.selling_price.value - (+document.sell_info.shipping_fee.value + +document.sell_info.transaction_fee.value) !== +document.sell_info.payout.value));
-        console.log((+document.sell_info.rounded_with_hk.value + +document.sell_info.profit.value) !== +document.sell_info.payout_on_sk.value);
-        debugger;
-        
-    function validate() {
-        if ((+document.sell_info.selling_price.value - (+document.sell_info.shipping_fee.value + +document.sell_info
-                .transaction_fee.value) !== +document.sell_info.payout.value) || (+document.sell_info.rounded_with_hk
-                .value + +document.sell_info.profit.value) !== +document.sell_info.payout_on_sk.value) {
-            alert(
-                "- Difference between selling price and fees must be equalto payout! \n\n- Diference between payout and 'rounded with main-account' must be equal to 'Payout on savings-account'"
-            );
-            return false;
-        }
-    }
-    */
-    </script>
 
 </html>
