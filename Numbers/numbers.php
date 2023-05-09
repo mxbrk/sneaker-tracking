@@ -65,6 +65,7 @@
            FORMAT(sum(profit),2, 'de_DE') as profit,
            FORMAT(sum(buying_price),2, 'de_DE') as buying_price,
            ROUND( ((sum(profit) / sum(buying_price)) * 100), 2) as roi,
+           ROUND( ((sum(profit) / sum(selling_price)) * 100), 2) as ros,
            FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1), 2),2, 'de_DE') as avg_profit_month
            /*Implement AVG Bought/Sold pairs per month*/
            FROM sneaker WHERE sold = 1  AND sell_date >= '2023-02-21'";
@@ -81,6 +82,7 @@
                "  Payout: ".$row["payout"]." €". "<br>" ."<br>" .
                "  Profit: " . $row["profit"]. " €" . "<br>" ."<br>" .
                "  ROI: " . $row["roi"]. " %" . "<br>" ."<br>".
+               "  ROS: " . $row["ros"]. " %" . "<br>" ."<br>".
                "  (Selling price can differ up to 5% and" ."<br>".
                "  fees can differ up to 10%)" ."<br>" .
                "  <hr>" .
