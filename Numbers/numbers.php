@@ -119,7 +119,17 @@
               } else {
                 echo "0 results";
               }
-
+        $sql6 = "SELECT ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0) as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
+        $result6 = $conn->query($sql6);
+        if ($result6->num_rows > 0) {
+          // output data of each row
+          while($row = $result6->fetch_assoc()) {
+            echo "Avg. TTS in days: " .$row["tts"]. " (deposit sneaker exluded)" ."<br>". "<br>";
+                }
+              } else {
+                echo "0 results";
+              }
+     
       $conn->close();
       ?>
 
