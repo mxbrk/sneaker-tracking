@@ -19,8 +19,11 @@
                 <option value="Adidas">Adidas</option>
                 <option value="Adidas YEEZY">Adidas YEEZY</option>
                 <option value="Nike">Nike</option>
+                <option value="Nike Air Jordan">Nike Air Jordan</option>
                 <option value="New Balance">New Balance</option>
                 <option value="Puma">Puma</option>
+                <option value="Crocs">Crocs</option>
+                <option value="Converse">Converse</option>
             </select>
 
             <label id="icon" for="sku"></label>
@@ -52,8 +55,8 @@
             <label id="icon" for="buy_shop"></label>
             <select id="select" name="buy_shop" required>
                 <option value="" disabled selected>Buy Shop</option>
-                <option value="Confirmed">Confirmed</option>
                 <option value="Vinted">Vinted</option>
+                <option value="Confirmed">Confirmed</option>
                 <option value="Ebay">Ebay</option>
                 <option value="Ebay-Kleinanzeigen">Ebay-Kleinanzeigen</option>
                 <option value="SNS">SNS</option>
