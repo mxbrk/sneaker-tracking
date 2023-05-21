@@ -30,9 +30,10 @@ transaction_fee = '$transaction_fee',
 sold = '1',
 payout = '$payout',
 profit = '$profit'
-WHERE sneakerID = '$sneakerID'";
+WHERE sneakerID = '$sneakerID'; ";
+$sql .= "UPDATE progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
 
-if(mysqli_query($link, $sql)){
+if(mysqli_multi_query($link, $sql)){
    header('Location: success_sell.php');
    echo "Succes";
 } else{
