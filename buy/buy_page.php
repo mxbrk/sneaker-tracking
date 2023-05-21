@@ -78,6 +78,7 @@
                 <option value="Nike">Nike</option>
                 <option value="SNKRS">SNKRS</option>
                 <option value="StockX">StockX</option>
+                <option value="Flea market">Flea market</option>
                 <option value="Others">Others</option>
             </select>
 
