@@ -20,7 +20,7 @@
             <li><a href="../index.html">Home</a> </li>
             <li><a href="/stores/stores.html">Stores</a> </li>
             <li><a href="/buy/buy_page.php">Buy</a> </li>
-            <li><a href="/sell/sell_page.php">Sell</a> </li>
+            <li><a href="/sell/sell_landing_page.php">Sell</a> </li>
             <li><a href="/numbers/numbers.php">Numbers</a> </li>
             <li><a href="/overview/overview.php">Overview</a> </li>
             <li><a href="/edit/edit_landing_page.php">Edit</a> </li>

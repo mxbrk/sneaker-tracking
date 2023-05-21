@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
@@ -8,17 +11,28 @@
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
     <script src="..\js\validateSellForm.js"></script>
+    <script src="..\js\calcProfit.js"></script>
+
 
 </head>
 
 <body>
     <div class="main-block">
+        <?php
+        $sneakerInfo =  $_SESSION['sql'];
+        ?>
         <h1>Sell Sneaker</h1>
 
-        <form action="insert_sell.php" name="sell_info" method="POST" onsubmit="validateSellForm();">
+        <form action="insert_sell.php" name="sell_info" method="POST" onsubmit="return validateSellForm();">
 
-            <label id="icon" for="sneakerID"></label>
-            <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required />
+            <label style="display: none;" id="icon" for="sneakerID"></label>
+            <input style="display: none;" type="number" name="sneakerID" id="sneakerID"
+                value="<?php echo $sneakerInfo[sneakerID] ?>" step="1" required />
+
+            <label style="display: none;" id="icon" for="buying_price"></label>
+            <input style="display: none;" type="number" name="buying_price" id="buying_price"
+                value="<?php echo $sneakerInfo[buying_price] ?>" step="1" required />
+
 
             <label id="icon" for="sell_date"></label>
             <input type="text" name="sell_date" id="sell_date" name="sell_date" placeholder="Sell date"
@@ -40,7 +54,8 @@
                 required />
 
             <label id="icon" for="payout"></label>
-            <input type="number" name="payout" id="payout" placeholder="Payout" step="0.01" required />
+            <input oninput="calcProfit()" type="number" name="payout" id="payout" placeholder="Payout" step="0.01"
+                required />
 
             <label id="icon" for="shipping_fee"></label>
             <input type="number" name="shipping_fee" id="shipping_fee" placeholder="Shipping fee" step="0.01"
