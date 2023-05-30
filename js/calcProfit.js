@@ -1,5 +1,6 @@
 function calcProfit(){
     var buying_price = document.getElementById("buying_price").value;
     var payout = document.getElementById("payout").value;
-    document.getElementById("profit").value = payout - buying_price;
+    var profit =  payout - buying_price;
+    document.getElementById("profit").value = profit.toFixed(2);
 }
