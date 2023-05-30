@@ -68,6 +68,9 @@ session_start();
             <label id="icon" for="profit"></label>
             <input type="number" name="profit" id="profit" placeholder="Profit" step="0.01" required />
 
+            <label id="icon" for="invoiceNumber"></label>
+            <input type="text" name="invoiceNumber" id="invoiceNumber" placeholder="Invoice #" />
+
             <div>
                 <br>
                 <button id="button" type="submit" value="Submit">Submit</button>

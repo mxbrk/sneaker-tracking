@@ -75,6 +75,7 @@
     sneaker.shipping_fee + sneaker.transaction_fee as fees,
     sneaker.payout,
     sneaker.profit,
+    CONCAT('#',sneaker.invoiceNumber) as invoiceNumber,
     CASE progress.status
      WHEN 9 THEN 'sell info submitted'
      WHEN 8 THEN 'payout'
@@ -128,6 +129,7 @@ if ($result->num_rows > 0) {
       <th>Fees</th>
       <th>Payout</th>
       <th>Profit</th>
+      <th>Invoice</th>
       <th style="width:120px">Status</th>
       <th style="width:150px" >Progress</th>
       </tr>';
@@ -148,7 +150,9 @@ if ($result->num_rows > 0) {
      <td>" . $row['selling_price'] . "</td>
      <td>" . $row['fees'] . "</td>
      <td>" . $row['payout'] . "</td>
-     <td>" . $row['profit'] . '</td>
+     <td>" . $row['profit'] . "</td>
+     <td>" . $row['invoiceNumber'] . '</td>
+
      <td style="font-size:14px">' . $row['statusName'] . '</td>
      <td>' .'<div style="width:"100%" class="light-grey"><div class="' .$row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>'.
      "</td>

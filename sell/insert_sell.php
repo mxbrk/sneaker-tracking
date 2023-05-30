@@ -19,6 +19,8 @@ $transaction_fee = mysqli_real_escape_string($link, $_REQUEST['transaction_fee']
 $sold = mysqli_real_escape_string($link, $_REQUEST['1']);
 $payout = mysqli_real_escape_string($link, $_REQUEST['payout']);
 $profit= mysqli_real_escape_string($link, $_REQUEST['profit']);
+$invoice= mysqli_real_escape_string($link, $_REQUEST['invoiceNumber']);
+
 
 // Attempt insert query execution
 $sql = "UPDATE sneaker
@@ -29,7 +31,8 @@ shipping_fee = '$shipping_fee',
 transaction_fee = '$transaction_fee',
 sold = '1',
 payout = '$payout',
-profit = '$profit'
+profit = '$profit',
+invoiceNumber = '$invoice'
 WHERE sneakerID = '$sneakerID'; ";
 $sql .= "UPDATE progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
 

@@ -1,2 +1,3 @@
 # sneaker-tracking
-Web application for tracking purchases, sales and statistics 
+
+Web application for tracking purchases, sales and statistics
