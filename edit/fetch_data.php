@@ -23,7 +23,8 @@ if ($conn->connect_error) {
         "buy_shop" => $row["buy_shop"],
         "buy_date" => $row["buy_date"],
         "size" => $row["size"],
-        "buying_price" => $row["buying_price"]
+        "buying_price" => $row["buying_price"],
+        "purchase_invoice" => $row["purchase_invoice"]
      );
       header('Location: edit_page.php');
 

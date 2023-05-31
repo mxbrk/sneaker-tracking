@@ -21,11 +21,17 @@ $date = mysqli_real_escape_string($link, $_REQUEST['date']);
 $buying_price = mysqli_real_escape_string($link, $_REQUEST['buying_price']);
 $sold = 0; //mysqli_real_escape_string($link, $_REQUEST['0']);
 $size = mysqli_real_escape_string($link, $_REQUEST['size']);
+$purchaseInvoice = mysqli_real_escape_string($link, $_REQUEST['purchase_invoice']);
+if ($purchaseInvoice == 1){
+      $purchaseInvoice = 1;
+} else {
+$purchaseInvoice = 0;
+}
 // Attempt insert query execution
 
-$sql = "INSERT INTO sneaker (brand, sku, modell, colorway, itemCondition, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, shipping_fee, transaction_fee, payout, profit)
+$sql = "INSERT INTO sneaker (brand, sku, modell, colorway, itemCondition, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, shipping_fee, transaction_fee, payout, profit, purchase_invoice)
 VALUES ('$brand', '$sku', '$modell', '$colorway', '$condition', '$age', '$buy_shop', '$date', '$buying_price',
-   '$sold', '$size', null, null, null, null, null, null)";
+   '$sold', '$size', $purchaseInvoice, null, null, null, null, null, null)";
 
 if(mysqli_query($link, $sql)){
    header('Location: success_buy.php');

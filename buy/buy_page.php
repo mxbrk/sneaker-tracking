@@ -88,6 +88,12 @@
 
             <label id="icon" for="buying_price"></label>
             <input type="number" name="buying_price" id="buying_price" placeholder="Price" step="0.01" required />
+
+            <br><br>
+
+            <input type="checkbox" name="purchase_invoice" id="purchase_invoice" value="1" />
+            <label id="icon" for="purchase_invoice">Purchase Invoice is documented</label>
+
             <div><br>
                 <button id="button" type="submit" value="Submit">Submit</button>
             </div>

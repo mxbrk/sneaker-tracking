@@ -68,6 +68,7 @@
     END as itemCondition,
     sneaker.age,
     sneaker.size,
+    sneaker.purchase_invoice,
     sneaker.buy_shop,
     sneaker.sell_shop ,
     sneaker.buying_price,
@@ -122,6 +123,7 @@ if ($result->num_rows > 0) {
       <th>Condition</th>
       <th>Age</th>
       <th>Size</th>
+      <th>Invoice</th>
       <th>Buy shop</th>
       <th>Sell shop</th>
       <th>Buy price</th>
@@ -129,14 +131,17 @@ if ($result->num_rows > 0) {
       <th>Fees</th>
       <th>Payout</th>
       <th>Profit</th>
-      <th>Invoice</th>
+      <th>Sales-Inv.</th>
       <th style="width:120px">Status</th>
       <th style="width:150px" >Progress</th>
       </tr>';
 
  // output data of each row
   while($row = $result->fetch_assoc()) {
-    $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);    
+    $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);
+    $row['purchase_invoice'] = str_replace("0", "", $row['purchase_invoice']);
+    $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
+
     echo "<tr>
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
@@ -144,6 +149,7 @@ if ($result->num_rows > 0) {
      <td>" . $row['itemCondition'] . "</td>
      <td>" . $row['age'] . "</td>
      <td>" . $row['size'] . "</td>
+     <td>" . $row['purchase_invoice'] . "</td>
      <td>" . $row['buy_shop'] . "</td>
      <td>" . $row['sell_shop'] . "</td>
      <td>" . $row['buying_price'] . "</td>

@@ -22,9 +22,16 @@ $date = mysqli_real_escape_string($link, $_REQUEST['buy_date']);
 $buying_price = mysqli_real_escape_string($link, $_REQUEST['buying_price']);
 $sold = 0; //mysqli_real_escape_string($link, $_REQUEST['0']);
 $size = mysqli_real_escape_string($link, $_REQUEST['size']);
+$purchaseInvoice = mysqli_real_escape_string($link, $_REQUEST['purchase_invoice']);
+if ($purchaseInvoice == 1){
+      $purchaseInvoiceValue = 1;
+} else {
+$purchaseInvoiceValue = 0;
+}
+$purchaseInvoiceValue = intval($purchaseInvoiceValue);
 // Attempt insert query execution
 $sneakerInfo = $_SESSION['sql'];
-$sql = "UPDATE sneaker SET brand = '$brand', sku = '$sku', modell = '$modell', colorway = '$colorway', itemCondition = '$condition', age = '$age', buy_shop = '$buy_shop', buy_date = '$date', buying_price = '$buying_price',  size = '$size' WHERE sneakerID =" . $sneakerInfo[sneakerID] . ";";
+$sql = "UPDATE sneaker SET brand = '$brand', sku = '$sku', modell = '$modell', colorway = '$colorway', itemCondition = '$condition', age = '$age', buy_shop = '$buy_shop', buy_date = '$date', buying_price = '$buying_price',  size = '$size', purchase_invoice = '$purchaseInvoiceValue' WHERE sneakerID =" . $sneakerInfo[sneakerID] . ";";
 
 if(mysqli_query($link, $sql)){
    header('Location: ..\overview\overview.php');

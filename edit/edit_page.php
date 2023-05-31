@@ -129,6 +129,10 @@ session_start();
                 </option>
                 <option <?php if($sneakerInfo[buy_shop] == 'StockX'){echo('selected="selected"');}?>value="StockX">
                     StockX</option>
+                <option
+                    <?php if($sneakerInfo[buy_shop] == 'Flea market'){echo('selected="selected"');}?>value="Flea market">
+                    Flea market</option>
+
                 <option <?php if($sneakerInfo[buy_shop] == 'Others'){echo('selected="selected"');}?>value="Others">
                     Others</option>
             </select>
@@ -141,6 +145,13 @@ session_start();
             <label id="icon" for="buying_price"></label>
             <input type="number" name="buying_price" id="buying_price" value="<?php echo $sneakerInfo[buying_price] ?>"
                 step="0.01" required />
+
+            <br><br>
+
+            <input type="checkbox" name="purchase_invoice" id="purchase_invoice" value="1"
+                <?php if ($sneakerInfo['purchase_invoice'] == 1) echo 'checked'; ?> />
+            <label id="icon" for="purchase_invoice">Purchase Invoice is documented</label>
+
             <div><br>
                 <button id="button" type="submit" onsubmit="clearForm()" value="Submit">Edit</button>
             </div>
