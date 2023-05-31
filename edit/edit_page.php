@@ -34,10 +34,23 @@ session_start();
                 <option <?php if($sneakerInfo[brand] == 'Nike'){echo('selected="selected"');}?>value="Nike">Nike
                 </option>
                 <option
+                    <?php if($sneakerInfo[brand] == 'Nike Air Jordan'){echo('selected="selected"');}?>value="Nike Air Jordan">
+                    Nike Air Jordan
+                </option>
+
+                <option <?php if($sneakerInfo[brand] == 'Puma'){echo('selected="selected"');}?>value="Puma">Puma
+                </option>
+                <option
                     <?php if($sneakerInfo[brand] == 'New Balance'){echo('selected="selected"');}?>value="New Balance">
                     New Balance</option>
                 <option <?php if($sneakerInfo[brand] == 'Puma'){echo('selected="selected"');}?>value="Puma">Puma
                 </option>
+                <option <?php if($sneakerInfo[brand] == 'Crocs'){echo('selected="selected"');}?>value="Crocs">Crocs
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Converse'){echo('selected="selected"');}?>value="Converse">
+                    Converse
+                </option>
+
             </select>
 
             <label id="icon" for="sku"></label>
