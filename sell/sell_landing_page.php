@@ -15,7 +15,7 @@
         <form action="fetch_sell_data.php" method="POST">
 
             <label id="icon" for="sneakerID"></label>
-            <input type="text" name="sneakerID" id="sneakerID" placeholder="Sneaker ID" required />
+            <input type="text" name="sneakerID" id="sneakerID" placeholder="Sneaker ID" required autofocus />
 
             <div><br>
                 <button id="button" type="submit" value="Submit">Submit sell info</button>

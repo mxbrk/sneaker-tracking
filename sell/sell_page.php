@@ -39,7 +39,7 @@ session_start();
                 value="<?php echo date('Y-m-d'); ?>" required onfocus="(this.type='date')" />
 
             <label id="icon" for="sell_shop"></label>
-            <select id="select" name="sell_shop" required>
+            <select id="select" name="sell_shop" required autofocus>
                 <option value="" disabled selected>Sell Shop</option>
                 <option value="Stockx">StockX</option>
                 <option value="Goat">GOAT</option>

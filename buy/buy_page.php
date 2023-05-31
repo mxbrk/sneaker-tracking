@@ -14,7 +14,7 @@
         <h1>Buy Sneaker</h1>
         <form action="insert_purchase.php" method="POST">
             <label id="icon" for="brand"></label>
-            <select id="select" name="brand" required>
+            <select id="select" name="brand" required autofocus>
                 <option value="" disabled selected>Brand</option>
                 <option value="Adidas">Adidas</option>
                 <option value="Adidas YEEZY">Adidas YEEZY</option>
