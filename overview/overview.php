@@ -7,7 +7,7 @@
     <title>STB-Overview</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <script src="..\js\searchFunction.js"></script>
-    <script src="..\js\deleteID.js"></script>
+    <script src="..\js\updateIDAlert.js"></script>
     <script src="..\js\calcFees.js"></script>
 
 </head>
@@ -27,11 +27,12 @@
         </ul>
     </nav>
     <div>
-        <form id="submitForm" action="update_progress.php" onsubmit="return approveDelete(this)" method="POST">
+        <form id="submitForm" action="update_progress.php" onsubmit="return approveAlert(this)" method="POST">
             <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required autofocus />
             <select id="select" name="status">
                 <option value="" disabled selected>Select the status</option>
                 <option value="delete_id">Delete ID</option>
+                <option value="unsold">Unsold</option>
                 <option value="payed">Payed</option>
                 <option value="arrived">Arrived</option>
                 <option value="listing_item">Listed for selling</option>

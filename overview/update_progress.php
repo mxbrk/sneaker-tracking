@@ -79,15 +79,26 @@ switch ($status) {
             }
         break;
       case "delete_id":
-      $sql11 = "DELETE FROM sneaker WHERE sneakerID = $sneakerID; ";
-      $sql11 .= "DELETE FROM progress WHERE sneakerID = $sneakerID";
-      if(mysqli_multi_query($link, $sql11)){
-      header('Location: overview.php');
+         $sql11 = "DELETE FROM sneaker WHERE sneakerID = '$sneakerID'; ";
+         $sql11 .= "DELETE FROM progress WHERE sneakerID = '$sneakerID'";
+            if(mysqli_multi_query($link, $sql11)){
+               header('Location: overview.php');
                echo "Succes";
             } else{
                echo "ERROR: Could not execute $sql11. " . mysqli_error($link);
             }
          break;
+      case "unsold":
+         $sql12 = "UPDATE progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'; ";
+         $sql12 .= "UPDATE sneaker SET sold='0', sell_shop= NULL, sell_date= NULL, selling_price= NULL, shipping_fee= NULL, transaction_fee= NULL, payout= NULL, profit= NULL, invoiceNumber= NULL WHERE sneakerID = '$sneakerID'";
+         if(mysqli_multi_query($link, $sql12)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql12. " . mysqli_error($link);
+            }
+         break;
+      
 }
 // Close connection
 mysqli_close($link);
