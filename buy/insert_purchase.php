@@ -31,7 +31,7 @@ $purchaseInvoice = 0;
 
 $sql = "INSERT INTO sneaker (brand, sku, modell, colorway, itemCondition, age, buy_shop, buy_date, buying_price, sold, size, sell_shop, selling_price, shipping_fee, transaction_fee, payout, profit, purchase_invoice)
 VALUES ('$brand', '$sku', '$modell', '$colorway', '$condition', '$age', '$buy_shop', '$date', '$buying_price',
-   '$sold', '$size', $purchaseInvoice, null, null, null, null, null, null)";
+   '$sold', '$size', null, null, null, null, null, null, $purchaseInvoice)";
 
 if(mysqli_query($link, $sql)){
    header('Location: success_buy.php');
