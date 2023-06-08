@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
-    <!--
-    - Structure schemas
-    -->
+    <!--- Structure schemas-->
     <pma:structure_schemas>
         <pma:database name="db_name" collation="utf8_general_ci" charset="utf8">
             <pma:table name="sneaker">
@@ -20,14 +18,16 @@
                   `sell_date` date DEFAULT NULL,
                   `sold` tinyint(1) DEFAULT NULL,
                   `size` float DEFAULT NULL,
-                  `buying_price` int(11) DEFAULT NULL,
-                  `selling_price` int(11) DEFAULT NULL,
-                  `shipping_fee` int(11) DEFAULT NULL,
-                  `transaction_fee` int(11) DEFAULT NULL,
-                  `payout` int(11) DEFAULT NULL,
-                  `profit` int(11) DEFAULT NULL,
+                  `buying_price` decimal(11,2) DEFAULT NULL,
+                  `selling_price` decimal(11,2) DEFAULT NULL,
+                  `shipping_fee` decimal(11,2) DEFAULT NULL,
+                  `transaction_fee` decimal(11,2) DEFAULT NULL,
+                  `payout` decimal(11,2) DEFAULT NULL,
+                  `profit` decimal(11,2) DEFAULT NULL,
+                  `invoiceNumber` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
+                  `purchase_invoice` int(1) DEFAULT NULL,
                   PRIMARY KEY (`sneakerID`)
-                ) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+                ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
             </pma:table>
         </pma:database>
     </pma:structure_schemas>

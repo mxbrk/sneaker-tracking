@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <pma_xml_export version="1.0" xmlns:pma="https://www.phpmyadmin.net/some_doc_url/">
-    <!--
-    - Structure schemas
-    -->
+    <!--- Structure schemas-->
     <pma:structure_schemas>
         <pma:database name="db_name" collation="utf8_general_ci" charset="utf8">
             <pma:table name="dd_progress">
@@ -15,9 +13,7 @@
         </pma:database>
     </pma:structure_schemas>
 
-    <!--
-    - Datenbank: 'db_stbln'
-    -->
+    <!--- Datenbank: 'db_name'-->
     <database name="db_name">
         <!-- Tabelle dd_progress -->
         <table name="dd_progress">
