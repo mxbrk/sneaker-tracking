@@ -87,7 +87,7 @@ session_start();
 
             <label id="icon" for="buy_shop"></label>
             <select id="select" name="buy_shop" required>
-                <option <?php if($sneakerInfo[buy_shop] == 'Buy Shop'){echo('selected="selected"');}?>value="" disabled
+                <option <?php if($sneakerInfo[buy_shop] == 'Buy hop'){echo('selected="selected"');}?>value="" disabled
                     selected>Buy Shop</option>
                 <option
                     <?php if($sneakerInfo[buy_shop] == 'Confirmed'){echo('selected="selected"');}?>value="Confirmed">

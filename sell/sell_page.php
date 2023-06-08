@@ -36,40 +36,53 @@ session_start();
 
             <label id="icon" for="sell_date"></label>
             <input type="text" name="sell_date" id="sell_date" name="sell_date" placeholder="Sell date"
-                value="<?php echo date('Y-m-d'); ?>" required onfocus="(this.type='date')" />
+                value="<?php echo $sneakerInfo[sell_date] ?>" value="<?php echo date('Y-m-d'); ?>" required
+                onfocus="(this.type='date')" />
 
             <label id="icon" for="sell_shop"></label>
             <select id="select" name="sell_shop" required autofocus>
-                <option value="" disabled selected>Sell Shop</option>
-                <option value="Stockx">StockX</option>
-                <option value="Goat">GOAT</option>
-                <option value="Vinted">Vinted</option>
-                <option value="Ebay Kleinanzeigen">Ebay Kleinanzeigen</option>
-                <option value="Ebay">Ebay</option>
-                <option value="Others">Others</option>
+                <option <?php if($sneakerInfo[sell_shop] == 'Sell shop'){echo('selected="selected"');}?>value=""
+                    disabled selected>Sell Shop</option>
+                <option <?php if($sneakerInfo[sell_shop] == 'StockX'){echo('selected="selected"');}?>value="Stockx">
+                    StockX</option>
+                <option <?php if($sneakerInfo[sell_shop] == 'Goat'){echo('selected="selected"');}?>value="Goat">GOAT
+                </option>
+                <option <?php if($sneakerInfo[sell_shop] == 'Vinted'){echo('selected="selected"');}?>value="Vinted">
+                    Vinted</option>
+                <option
+                    <?php if($sneakerInfo[sell_shop] == 'Ebay Kleinanzeigen'){echo('selected="selected"');}?>value="Ebay Kleinanzeigen">
+                    Ebay Kleinanzeigen</option>
+                <option <?php if($sneakerInfo[sell_shop] == 'Ebay'){echo('selected="selected"');}?>value="Ebay">Ebay
+                </option>
+                <option <?php if($sneakerInfo[sell_shop] == 'Others'){echo('selected="selected"');}?>value="Others">
+                    Others</option>
             </select>
 
             <label id="icon" for="selling_price"></label>
             <input type="number" name="selling_price" id="selling_price" placeholder="Selling price" step="0.01"
-                required />
+                value="<?php echo $sneakerInfo[selling_price] ?>" required />
 
             <label id="icon" for="payout"></label>
-            <input oninput="calcProfit()" type="number" name="payout" id="payout" placeholder="Payout" step="0.01"
-                required />
+            <input type="number" name="payout" id="payout" placeholder="Payout"
+                value="<?php echo $sneakerInfo[payout] ?>" step="0.01" required />
+
 
             <label id="icon" for="shipping_fee"></label>
             <input type="number" name="shipping_fee" id="shipping_fee" placeholder="Shipping fee" step="0.01"
-                required />
+                value="<?php echo $sneakerInfo[shipping_fee] ?>" required />
 
             <label id="icon" for="transaction_fee"></label>
-            <input type="number" name="transaction_fee" id="transaction_fee" placeholder="Transaction fee" step="0.01"
+            <input type="number" name="transaction_fee" id="transaction_fee"
+                value="<?php echo $sneakerInfo[transaction_fee] ?>" placeholder="Transaction fee" step="0.01"
                 required />
 
             <label id="icon" for="profit"></label>
-            <input type="number" name="profit" id="profit" placeholder="Profit" step="0.01" required />
+            <input type="number" name="profit" id="profit" placeholder="Profit" step="0.01"
+                value="<?php echo $sneakerInfo[profit] ?>" required />
 
-            <label id="icon" for="invoiceNumber"></label>
-            <input type="text" name="invoiceNumber" id="invoiceNumber" placeholder="Invoice #" />
+            <label id=" icon" for="invoiceNumber"></label>
+            <input type="text" name="invoiceNumber" id="invoiceNumber" placeholder="Invoice #"
+                value="<?php echo $sneakerInfo[invoiceNumber] ?>" />
 
             <div>
                 <br>
