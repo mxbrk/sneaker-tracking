@@ -29,7 +29,7 @@
     <div>
         <form id="submitForm" action="update_progress.php" onsubmit="return approveAlert(this)" method="POST">
             <input type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required autofocus />
-            <select id="select" name="status">
+            <select id="select" name="status" required>
                 <option value="" disabled selected>Select the status</option>
                 <option value="delete_id">Delete ID</option>
                 <option value="unsold">Unsold</option>
