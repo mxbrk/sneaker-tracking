@@ -94,6 +94,10 @@ session_start();
                     Confirmed</option>
                 <option <?php if($sneakerInfo[buy_shop] == 'Vinted'){echo('selected="selected"');}?>value="Vinted">
                     Vinted</option>
+                <option
+                    <?php if($sneakerInfo[buy_shop] == 'Vinted-System'){echo('selected="selected"');}?>value="Vinted-System">
+                    Vinted-System</option>
+
                 <option <?php if($sneakerInfo[buy_shop] == 'Ebay'){echo('selected="selected"');}?>value="Ebay">Ebay
                 </option>
                 <option

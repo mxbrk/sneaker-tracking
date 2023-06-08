@@ -50,6 +50,10 @@ session_start();
                 <option <?php if($sneakerInfo[sell_shop] == 'Vinted'){echo('selected="selected"');}?>value="Vinted">
                     Vinted</option>
                 <option
+                    <?php if($sneakerInfo[sell_shop] == 'Vinted-System'){echo('selected="selected"');}?>value="Vinted-System">
+                    Vinted-System</option>
+
+                <option
                     <?php if($sneakerInfo[sell_shop] == 'Ebay Kleinanzeigen'){echo('selected="selected"');}?>value="Ebay Kleinanzeigen">
                     Ebay Kleinanzeigen</option>
                 <option <?php if($sneakerInfo[sell_shop] == 'Ebay'){echo('selected="selected"');}?>value="Ebay">Ebay

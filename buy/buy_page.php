@@ -56,6 +56,7 @@
             <select id="select" name="buy_shop" required>
                 <option value="" disabled selected>Buy Shop</option>
                 <option value="Vinted">Vinted</option>
+                <option value="Vinted-System">Vinted-System</option>
                 <option value="Confirmed">Confirmed</option>
                 <option value="Ebay">Ebay</option>
                 <option value="Ebay-Kleinanzeigen">Ebay-Kleinanzeigen</option>
