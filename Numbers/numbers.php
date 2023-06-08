@@ -64,8 +64,8 @@
            FORMAT(sum(payout),2, 'de_DE') as payout,
            FORMAT(sum(profit),2, 'de_DE') as profit,
            FORMAT(sum(buying_price),2, 'de_DE') as buying_price,
-           ROUND( ((sum(profit) / sum(buying_price)) * 100), 2, 'de_DE') as roi,
-           ROUND( ((sum(profit) / sum(payout)) * 100), 2, 'de_DE') as ros,
+           FORMAT(ROUND( ((sum(profit) / sum(buying_price)) * 100), 2),2, 'de_DE') as roi,
+           FORMAT(ROUND( ((sum(profit) / sum(payout)) * 100), 2),2, 'de_DE') as ros,
            FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1), 2),2, 'de_DE') as avg_profit_month
            /*Implement AVG Bought/Sold pairs per month*/
            FROM sneaker WHERE sold = 1  AND sell_date >= '2023-02-21'";
@@ -94,7 +94,7 @@
         }
 
         $sql4 = "SELECT
-        ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1), 2, 'de_DE') as avg_bought_month
+        FORMAT(ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1),2), 2, 'de_DE') as avg_bought_month
         FROM sneaker WHERE buy_date >= '2023-02-21'";
 
         $result4 = $conn->query($sql4);
@@ -107,7 +107,7 @@
                echo "0 results";
              }
          $sql5 = "SELECT
-         ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1), 2, 'de_DE') as avg_sold_month
+         FORMAT(ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1),2), 2, 'de_DE') as avg_sold_month
          FROM sneaker WHERE sold = 1 AND sell_date >= '2023-02-21'";
 
          $result5 = $conn->query($sql5);
@@ -119,7 +119,7 @@
               } else {
                 echo "0 results";
               }
-        $sql6 = "SELECT ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
+        $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),2, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
         $result6 = $conn->query($sql6);
         if ($result6->num_rows > 0) {
           // output data of each row
