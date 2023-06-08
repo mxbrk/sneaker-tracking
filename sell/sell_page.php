@@ -45,7 +45,7 @@ session_start();
                     disabled selected>Sell Shop</option>
                 <option <?php if($sneakerInfo[sell_shop] == 'StockX'){echo('selected="selected"');}?>value="Stockx">
                     StockX</option>
-                <option <?php if($sneakerInfo[sell_shop] == 'Goat'){echo('selected="selected"');}?>value="Goat">GOAT
+                <option <?php if($sneakerInfo[sell_shop] == 'alias'){echo('selected="selected"');}?>value="alias">alias
                 </option>
                 <option <?php if($sneakerInfo[sell_shop] == 'Vinted'){echo('selected="selected"');}?>value="Vinted">
                     Vinted</option>
