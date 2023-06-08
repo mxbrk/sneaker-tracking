@@ -72,11 +72,11 @@
     sneaker.purchase_invoice,
     sneaker.buy_shop,
     sneaker.sell_shop ,
-    sneaker.buying_price,
-    sneaker.selling_price,
-    sneaker.shipping_fee + sneaker.transaction_fee as fees,
-    sneaker.payout,
-    sneaker.profit,
+    FORMAT(sneaker.buying_price,2, 'de_DE') as buying_price,
+    FORMAT(sneaker.selling_price,2, 'de_DE') as selling_price,
+    FORMAT((sneaker.shipping_fee + sneaker.transaction_fee),2, 'de_DE') as fees,
+    FORMAT((sneaker.payout),2, 'de_DE') as payout,
+    FORMAT((sneaker.profit),2, 'de_DE') as profit, 
     CONCAT('#',sneaker.invoiceNumber) as invoiceNumber,
     CASE progress.status
      WHEN 9 THEN 'sell info submitted'
