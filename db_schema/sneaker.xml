@@ -3,8 +3,8 @@
     <!--- Structure schemas-->
     <pma:structure_schemas>
         <pma:database name="db_name" collation="utf8_general_ci" charset="utf8">
-            <pma:table name="sneaker">
-                CREATE TABLE `sneaker` (
+            <pma:table name="demo_sneaker">
+                CREATE TABLE `demo_sneaker` (
                   `sneakerID` int(11) NOT NULL AUTO_INCREMENT,
                   `brand` varchar(255) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,
                   `sku` varchar(50) CHARACTER SET utf8 COLLATE utf8_general_ci DEFAULT NULL,

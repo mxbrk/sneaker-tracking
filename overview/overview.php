@@ -60,24 +60,24 @@
     if ($conn->connect_error) {
       die("Connection failed: " . $conn->connect_error);
     }
-    $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
+    $sql = "SELECT demo_sneaker.sneakerID,CONCAT(demo_sneaker.brand,' ', demo_sneaker.modell,' ', demo_sneaker.colorway)
     as sneaker,
-    sneaker.sku,
-    CASE sneaker.itemCondition
+    demo_sneaker.sku,
+    CASE demo_sneaker.itemCondition
     WHEN 'deadstock' THEN 'DS' 
     ELSE 'Used' 
     END as itemCondition,
-    sneaker.age,
-    sneaker.size,
-    sneaker.purchase_invoice,
-    sneaker.buy_shop,
-    sneaker.sell_shop ,
-    FORMAT(sneaker.buying_price,2, 'de_DE') as buying_price,
-    FORMAT(sneaker.selling_price,2, 'de_DE') as selling_price,
-    FORMAT((sneaker.shipping_fee + sneaker.transaction_fee),2, 'de_DE') as fees,
-    FORMAT((sneaker.payout),2, 'de_DE') as payout,
-    FORMAT((sneaker.profit),2, 'de_DE') as profit, 
-    CONCAT('#',sneaker.invoiceNumber) as invoiceNumber,
+    demo_sneaker.age,
+    demo_sneaker.size,
+    demo_sneaker.purchase_invoice,
+    demo_sneaker.buy_shop,
+    demo_sneaker.sell_shop ,
+    FORMAT(demo_sneaker.buying_price,2, 'de_DE') as buying_price,
+    FORMAT(demo_sneaker.selling_price,2, 'de_DE') as selling_price,
+    FORMAT((demo_sneaker.shipping_fee + demo_sneaker.transaction_fee),2, 'de_DE') as fees,
+    FORMAT((demo_sneaker.payout),2, 'de_DE') as payout,
+    FORMAT((demo_sneaker.profit),2, 'de_DE') as profit, 
+    CONCAT('#',demo_sneaker.invoiceNumber) as invoiceNumber,
     CASE progress.status
      WHEN 9 THEN 'sell info submitted'
      WHEN 8 THEN 'payout'
@@ -108,9 +108,9 @@
      WHEN 2 THEN 'Level1'
     ELSE  '.'
     END as statusColor
-    FROM sneaker
-    LEFT JOIN progress ON sneaker.sneakerID=progress.sneakerID
-    ORDER BY sneaker.sold ASC, sneaker.sneakerID ASC";
+    FROM demo_sneaker
+    LEFT JOIN demo_progress ON demo_sneaker.sneakerID=progress.sneakerID
+    ORDER BY demo_sneaker.sold ASC, demo_sneaker.sneakerID ASC";
 
 
 $result = $conn->query($sql);

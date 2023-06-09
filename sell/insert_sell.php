@@ -23,7 +23,7 @@ $invoice= mysqli_real_escape_string($link, $_REQUEST['invoiceNumber']);
 
 
 // Attempt insert query execution
-$sql = "UPDATE sneaker
+$sql = "UPDATE demo_sneaker
 SET sell_date = '$sell_date',
 sell_shop = '$sell_shop',
 selling_price = '$selling_price',
@@ -34,7 +34,7 @@ payout = '$payout',
 profit = '$profit',
 invoiceNumber = '$invoice'
 WHERE sneakerID = '$sneakerID'; ";
-$sql .= "UPDATE progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+$sql .= "UPDATE demo_progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
 
 if(mysqli_multi_query($link, $sql)){
    header('Location: success_sell.php');

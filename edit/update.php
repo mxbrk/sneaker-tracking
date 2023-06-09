@@ -31,7 +31,7 @@ $purchaseInvoiceValue = 0;
 $purchaseInvoiceValue = intval($purchaseInvoiceValue);
 // Attempt insert query execution
 $sneakerInfo = $_SESSION['sql'];
-$sql = "UPDATE sneaker SET brand = '$brand', sku = '$sku', modell = '$modell', colorway = '$colorway', itemCondition = '$condition', age = '$age', buy_shop = '$buy_shop', buy_date = '$date', buying_price = '$buying_price',  size = '$size', purchase_invoice = '$purchaseInvoiceValue' WHERE sneakerID =" . $sneakerInfo[sneakerID] . ";";
+$sql = "UPDATE demo_sneaker SET brand = '$brand', sku = '$sku', modell = '$modell', colorway = '$colorway', itemCondition = '$condition', age = '$age', buy_shop = '$buy_shop', buy_date = '$date', buying_price = '$buying_price',  size = '$size', purchase_invoice = '$purchaseInvoiceValue' WHERE sneakerID =" . $sneakerInfo[sneakerID] . ";";
 
 if(mysqli_query($link, $sql)){
    header('Location: ..\overview\overview.php');

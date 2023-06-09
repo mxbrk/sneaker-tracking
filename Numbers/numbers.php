@@ -27,7 +27,7 @@
             FORMAT(sum(payout),2, 'de_DE') as payout,
             FORMAT(sum(profit),2, 'de_DE') as profit,
             count(sneakerID) as amount
-            FROM sneaker";
+            FROM demo_sneaker";
 
             $result = $conn->query($sql);
           if ($result->num_rows > 0) {
@@ -43,7 +43,7 @@
 
            $sql2 = "SELECT count(sold) as sold,
            FORMAT(sum(buying_price),2, 'de_DE') as buying_price
-           FROM sneaker WHERE sold = 0";
+           FROM demo_sneaker WHERE sold = 0";
 
            $result2 = $conn->query($sql2);
           if ($result2->num_rows > 0) {
@@ -68,7 +68,7 @@
            FORMAT(ROUND( ((sum(profit) / sum(payout)) * 100), 2),2, 'de_DE') as ros,
            FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1), 2),2, 'de_DE') as avg_profit_month
            /*Implement AVG Bought/Sold pairs per month*/
-           FROM sneaker WHERE sold = 1  AND sell_date >= '2023-02-21'";
+           FROM demo_sneaker WHERE sold = 1  AND sell_date >= '2023-02-21'";
 
            $result3 = $conn->query($sql3);
            if ($result3->num_rows > 0) {
@@ -95,7 +95,7 @@
 
         $sql4 = "SELECT
         FORMAT(ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1),2), 2, 'de_DE') as avg_bought_month
-        FROM sneaker WHERE buy_date >= '2023-02-21'";
+        FROM demo_sneaker WHERE buy_date >= '2023-02-21'";
 
         $result4 = $conn->query($sql4);
        if ($result4->num_rows > 0) {
@@ -108,7 +108,7 @@
              }
          $sql5 = "SELECT
          FORMAT(ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1),2), 2, 'de_DE') as avg_sold_month
-         FROM sneaker WHERE sold = 1 AND sell_date >= '2023-02-21'";
+         FROM demo_sneaker WHERE sold = 1 AND sell_date >= '2023-02-21'";
 
          $result5 = $conn->query($sql5);
         if ($result5->num_rows > 0) {
@@ -119,7 +119,7 @@
               } else {
                 echo "0 results";
               }
-        $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),2, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
+        $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),2, 'de_DE') as 'tts'FROM `demo_sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
         $result6 = $conn->query($sql6);
         if ($result6->num_rows > 0) {
           // output data of each row

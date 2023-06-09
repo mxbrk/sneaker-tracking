@@ -7,7 +7,7 @@ if ($conn->connect_error) {
   die("Connection failed: " . $conn->connect_error);
 }       
     $sneakerID = mysqli_real_escape_string($conn, $_REQUEST['sneakerID']);
-    $sql = "SELECT * FROM sneaker WHERE sneakerID =" .  "$sneakerID" .";";
+    $sql = "SELECT * FROM demo_sneaker WHERE sneakerID =" .  "$sneakerID" .";";
     $result = $conn->query($sql);
     if ($result->num_rows > 0) {
     // output data of each row

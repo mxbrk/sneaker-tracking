@@ -3,8 +3,8 @@
     <!--- Structure schemas-->
     <pma:structure_schemas>
         <pma:database name="db_name" collation="utf8_general_ci" charset="utf8">
-            <pma:table name="dd_progress">
-                CREATE TABLE `dd_progress` (
+            <pma:table name="demo_demo_dd_progress">
+                CREATE TABLE `demo_dd_progress` (
                   `id` int(11) NOT NULL AUTO_INCREMENT,
                   `name` varchar(50) NOT NULL,
                   PRIMARY KEY (`id`)
@@ -15,32 +15,32 @@
 
     <!--- Datenbank: 'db_name'-->
     <database name="db_name">
-        <!-- Tabelle dd_progress -->
-        <table name="dd_progress">
+        <!-- Tabelle demo_dd_progress -->
+        <table name="demo_dd_progress">
             <column name="id">2</column>
             <column name="name">payed</column>
         </table>
-        <table name="dd_progress">
+        <table name="demo_dd_progress">
             <column name="id">4</column>
             <column name="name">arrived</column>
         </table>
-        <table name="dd_progress">
+        <table name="demo_dd_progress">
             <column name="id">5</column>
             <column name="name">listing_item</column>
         </table>
-        <table name="dd_progress">
+        <table name="demo_dd_progress">
             <column name="id">6</column>
             <column name="name">sold_item</column>
         </table>
-        <table name="dd_progress">
+        <table name="demo_dd_progress">
             <column name="id">7</column>
             <column name="name">shipped_to_buyer</column>
         </table>
-        <table name="dd_progress">
+        <table name="demo_dd_progress">
             <column name="id">8</column>
             <column name="name">payout</column>
         </table>
-        <table name="dd_progress">
+        <table name="demo_dd_progress">
             <column name="id">9</column>
             <column name="name">submit_sell_info</column>
         </table>

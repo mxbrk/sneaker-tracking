@@ -16,7 +16,7 @@ $status = mysqli_real_escape_string($link, $_REQUEST['status']);
 
 switch ($status) {
     case "payed":
-      $sql1 = "UPDATE progress SET status ='2', payed='1', arrived='0', listing_item='0', sold_item='0', shipped_to_buyer='0',submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+      $sql1 = "UPDATE demo_progress SET status ='2', payed='1', arrived='0', listing_item='0', sold_item='0', shipped_to_buyer='0',submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql1)){
                header('Location: overview.php');
                echo "Succes";
@@ -25,7 +25,7 @@ switch ($status) {
             }
         break;
     case "arrived":
-      $sql2 = "UPDATE progress SET status ='4', payed='1', arrived='1', listing_item='0', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+      $sql2 = "UPDATE demo_progress SET status ='4', payed='1', arrived='1', listing_item='0', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql2)){
                header('Location: overview.php');
                echo "Succes";
@@ -34,7 +34,7 @@ switch ($status) {
             }
         break;
     case "listing_item":
-      $sql3 = "UPDATE progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+      $sql3 = "UPDATE demo_progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql3)){
                header('Location: overview.php');
                echo "Succes";
@@ -43,7 +43,7 @@ switch ($status) {
             }
         break;
     case "sold_item":
-      $sql4 = "UPDATE progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+      $sql4 = "UPDATE demo_progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql4)){
                header('Location: overview.php');
                echo "Succes";
@@ -52,7 +52,7 @@ switch ($status) {
             }
         break;
     case "shipped_to_buyer":
-      $sql5 = "UPDATE progress SET  status ='7', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+      $sql5 = "UPDATE demo_progress SET  status ='7', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql5)){
                header('Location: overview.php');
                echo "Succes";
@@ -61,7 +61,7 @@ switch ($status) {
             }
         break;
     case "submit_sell_info":
-      $sql9 = "UPDATE progress SET status ='9' , payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='0' WHERE sneakerID = '$sneakerID'";
+      $sql9 = "UPDATE demo_progress SET status ='9' , payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='0' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql9)){
                header('Location: overview.php');
                echo "Succes";
@@ -70,7 +70,7 @@ switch ($status) {
             }
         break;
     case "payout":
-      $sql10 = "UPDATE progress SET status ='8', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='1' WHERE sneakerID = '$sneakerID'";
+      $sql10 = "UPDATE demo_progress SET status ='8', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='1' WHERE sneakerID = '$sneakerID'";
             if(mysqli_query($link, $sql10)){
                header('Location: overview.php');
                echo "Succes";
@@ -79,8 +79,8 @@ switch ($status) {
             }
         break;
       case "delete_id":
-         $sql11 = "DELETE FROM sneaker WHERE sneakerID = '$sneakerID'; ";
-         $sql11 .= "DELETE FROM progress WHERE sneakerID = '$sneakerID'";
+         $sql11 = "DELETE FROM demo_sneaker WHERE sneakerID = '$sneakerID'; ";
+         $sql11 .= "DELETE FROM demo_progress WHERE sneakerID = '$sneakerID'";
             if(mysqli_multi_query($link, $sql11)){
                header('Location: overview.php');
                echo "Succes";
@@ -89,8 +89,8 @@ switch ($status) {
             }
          break;
       case "unsold":
-         $sql12 = "UPDATE progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'; ";
-         $sql12 .= "UPDATE sneaker SET sold='0', sell_shop= NULL, sell_date= NULL, selling_price= NULL, shipping_fee= NULL, transaction_fee= NULL, payout= NULL, profit= NULL, invoiceNumber= NULL WHERE sneakerID = '$sneakerID'";
+         $sql12 = "UPDATE demo_progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'; ";
+         $sql12 .= "UPDATE demo_sneaker SET sold='0', sell_shop= NULL, sell_date= NULL, selling_price= NULL, shipping_fee= NULL, transaction_fee= NULL, payout= NULL, profit= NULL, invoiceNumber= NULL WHERE sneakerID = '$sneakerID'";
          if(mysqli_multi_query($link, $sql12)){
                header('Location: overview.php');
                echo "Succes";

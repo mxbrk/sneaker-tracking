@@ -3,8 +3,8 @@
     <!--- Structure schemas-->
     <pma:structure_schemas>
         <pma:database name="db_name" collation="utf8_general_ci" charset="utf8">
-            <pma:table name="progress">
-                CREATE TABLE `progress` (
+            <pma:table name="demo_progress">
+                CREATE TABLE `demo_progress` (
                   `sneakerID` int(11) NOT NULL AUTO_INCREMENT,
                   `status` int(11) NOT NULL,
                   `payed` tinyint(1) NOT NULL,

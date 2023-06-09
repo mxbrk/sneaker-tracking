@@ -23,8 +23,8 @@
         $sql = "SELECT
         MAX(sneakerID) as sneakerID,
         CONCAT(brand,' ', modell,' ', colorway) as sneaker
-        FROM sneaker
-        WHERE sneakerID = (SELECT max(sneakerID) FROM sneaker)";
+        FROM demo_sneaker
+        WHERE sneakerID = (SELECT max(sneakerID) FROM demo_sneaker)";
 
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
