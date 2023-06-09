@@ -119,7 +119,7 @@
               } else {
                 echo "0 results";
               }
-        $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),2, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
+        $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),0, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
         $result6 = $conn->query($sql6);
         if ($result6->num_rows > 0) {
           // output data of each row
