@@ -78,7 +78,7 @@
     FORMAT((demo_sneaker.payout),2, 'de_DE') as payout,
     FORMAT((demo_sneaker.profit),2, 'de_DE') as profit, 
     CONCAT('#',demo_sneaker.invoiceNumber) as invoiceNumber,
-    CASE progress.status
+    CASE demo_progress.status
      WHEN 9 THEN 'sell info submitted'
      WHEN 8 THEN 'payout'
      WHEN 7 THEN 'shipped'
@@ -88,7 +88,7 @@
      WHEN 2 THEN 'payed'
     ELSE  0
     END as statusName,
-    CASE progress.status
+    CASE demo_progress.status
      WHEN 9 THEN 100
      WHEN 8 THEN 85
      WHEN 7 THEN 70
@@ -98,7 +98,7 @@
      WHEN 2 THEN 12
     ELSE  0
     END as status,
-    CASE progress.status
+    CASE demo_progress.status
      WHEN 9 THEN 'Level7'
      WHEN 8 THEN 'Level6'
      WHEN 7 THEN 'Level5'
@@ -109,7 +109,7 @@
     ELSE  '.'
     END as statusColor
     FROM demo_sneaker
-    LEFT JOIN demo_progress ON demo_sneaker.sneakerID=progress.sneakerID
+    LEFT JOIN demo_progress ON demo_sneaker.sneakerID= demo_progress.sneakerID
     ORDER BY demo_sneaker.sold ASC, demo_sneaker.sneakerID ASC";
 
 

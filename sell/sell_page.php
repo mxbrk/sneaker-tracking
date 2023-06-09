@@ -67,7 +67,7 @@ session_start();
                 value="<?php echo $sneakerInfo[selling_price] ?>" required />
 
             <label id="icon" for="payout"></label>
-            <input type="number" name="payout" id="payout" placeholder="Payout"
+            <input oninput="calcProfit()" type="number" name="payout" id="payout" placeholder="Payout"
                 value="<?php echo $sneakerInfo[payout] ?>" step="0.01" required />
 
 
