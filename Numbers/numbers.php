@@ -34,8 +34,9 @@
           // output data of each row
           while($row = $result->fetch_assoc()) {
             echo "<hr>" .
-                 "Invest  (since 20.02.2023): " . $row["buying_price"]. " €  " . "/ ".$row["amount"]." pairs"."<br>" ."<br>" .
-                 "Payout  (since 20.02.2023): " . $row["payout"]. " €" . "<br>". "<br>";
+                  "statistics starting from 01.06.2023" ."<br>" . "<br>" .
+                 "Overall invested: " . $row["buying_price"]. " €  " . "/ ".$row["amount"]." pairs"."<br>" ."<br>" .
+                 "Complete payout: " . $row["payout"]. " €" . "<br>". "<br>";
                }
            } else {
              echo "0 results";
@@ -49,8 +50,7 @@
           if ($result2->num_rows > 0) {
              // output data of each row
              while($row = $result2->fetch_assoc()) {
-               echo "In stock: " .$row["buying_price"]. " €" . " / ". $row["sold"]." pairs"."<br>"."<br>"  .
-               "The inventory started with 27 pairs" ."<br>" .
+               echo "In stock: " .$row["buying_price"]. " €" . " / ". $row["sold"]." pairs"."<br>".
                "<hr>";
                   }
                 } else {
@@ -82,9 +82,7 @@
                "  Payout: ".$row["payout"]." €". "<br>" ."<br>" .
                "  Profit: " . $row["profit"]. " €" . "<br>" ."<br>" .
                "  ROI: " . $row["roi"]. " %" . "<br>" ."<br>".
-               "  ROS: " . $row["ros"]. " %" . "<br>" ."<br>".
-               "  (Selling price can differ up to 5% and" ."<br>".
-               "  fees can differ up to 10%)" ."<br>" .
+               "  ROS: " . $row["ros"]. " %" . "<br>" .
                "  <hr>" .
                "  Statistics:"."<br>" ."<br>" .
                "  Avg. profit/month: " . $row["avg_profit_month"]. " €" . "<br>" . "<br>";
@@ -124,7 +122,7 @@
         if ($result6->num_rows > 0) {
           // output data of each row
           while($row = $result6->fetch_assoc()) {
-            echo "Avg. TTS in days: " .$row["tts"]. " (deposit sneaker exluded)" ."<br>". "<br>";
+            echo "Avg. TTS (time to sell) in days: " .$row["tts"] ."<br>". "<br>";
                 }
               } else {
                 echo "0 results";
