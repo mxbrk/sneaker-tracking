@@ -50,7 +50,7 @@
              // output data of each row
              while($row = $result2->fetch_assoc()) {
                echo "In stock: " .$row["buying_price"]. " €" . " / ". $row["sold"]." pairs"."<br>"."<br>"  .
-               "The inventory started with 27 pairs" ."<br>" .
+               "The inventory started with 29 pairs" ."<br>" .
                "<hr>";
                   }
                 } else {
