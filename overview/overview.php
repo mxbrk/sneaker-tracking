@@ -70,8 +70,14 @@
     sneaker.age,
     sneaker.size,
     sneaker.purchase_invoice,
-    sneaker.buy_shop,
-    sneaker.sell_shop ,
+    CASE sneaker.buy_shop
+    WHEN 'Vinted-System' THEN 'V. System' 
+    ELSE sneaker.buy_shop
+    END as buy_shop,
+    CASE sneaker.sell_shop
+    WHEN 'Vinted-System' THEN 'V. System' 
+    ELSE sneaker.sell_shop
+    END as sell_shop,
     FORMAT(sneaker.buying_price,2, 'de_DE') as buying_price,
     FORMAT(sneaker.selling_price,2, 'de_DE') as selling_price,
     FORMAT((sneaker.shipping_fee + sneaker.transaction_fee),2, 'de_DE') as fees,
