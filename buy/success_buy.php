@@ -43,8 +43,10 @@
                     value="Buy another sneaker" />
             </form>
             <form>
-                <input onclick="window.location.href='../index.html'" id="button" type="button" value="Home" />
+                <input onclick="window.location.href='/overview/overview.php'" id="button" type="button"
+                    value="Overview" />
             </form>
+
         </div>
 </body>
 
