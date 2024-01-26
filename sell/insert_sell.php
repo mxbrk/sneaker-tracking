@@ -5,7 +5,7 @@ include '../db_config.php';
 $link = mysqli_connect($servername, $username, $password, $dbname);
 
 // Check connection
-if($link === false){
+if ($link === false) {
    die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
@@ -18,8 +18,8 @@ $shipping_fee = mysqli_real_escape_string($link, $_REQUEST['shipping_fee']);
 $transaction_fee = mysqli_real_escape_string($link, $_REQUEST['transaction_fee']);
 $sold = mysqli_real_escape_string($link, $_REQUEST['1']);
 $payout = mysqli_real_escape_string($link, $_REQUEST['payout']);
-$profit= mysqli_real_escape_string($link, $_REQUEST['profit']);
-$invoice= mysqli_real_escape_string($link, $_REQUEST['invoiceNumber']);
+$profit = mysqli_real_escape_string($link, $_REQUEST['profit']);
+$invoice = mysqli_real_escape_string($link, $_REQUEST['invoiceNumber']);
 
 
 // Attempt insert query execution
@@ -36,10 +36,10 @@ invoiceNumber = '$invoice'
 WHERE sneakerID = '$sneakerID'; ";
 $sql .= "UPDATE progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
 
-if(mysqli_multi_query($link, $sql)){
+if (mysqli_multi_query($link, $sql)) {
    header('Location: success_sell.php');
    echo "Succes";
-} else{
+} else {
    echo "ERROR: Could not able to execute:  $sql. " . mysqli_error($link);
 }
 

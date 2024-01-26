@@ -43,7 +43,7 @@ session_start();
             <select id="select" name="sell_shop" required autofocus>
                 <option <?php if($sneakerInfo[sell_shop] == 'Sell shop'){echo('selected="selected"');}?>value=""
                     disabled selected>Sell Shop</option>
-                <option <?php if($sneakerInfo[sell_shop] == 'StockX'){echo('selected="selected"');}?>value="Stockx">
+                <option <?php if($sneakerInfo[sell_shop] == 'StockX'){echo('selected="selected"');}?>value="StockX">
                     StockX</option>
                 <option <?php if($sneakerInfo[sell_shop] == 'alias'){echo('selected="selected"');}?>value="alias">alias
                 </option>

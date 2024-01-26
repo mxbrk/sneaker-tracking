@@ -54,13 +54,13 @@
 
     <div class="table">
         <?php
-    include '../db_config.php';
-    // Create connection
-    $conn = mysqli_connect($servername, $username, $password, $dbname);
-    if ($conn->connect_error) {
-      die("Connection failed: " . $conn->connect_error);
-    }
-    $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
+        include '../db_config.php';
+        // Create connection
+        $conn = mysqli_connect($servername, $username, $password, $dbname);
+        if ($conn->connect_error) {
+            die("Connection failed: " . $conn->connect_error);
+        }
+        $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
     as sneaker,
     sneaker.sku,
     CASE sneaker.itemCondition
@@ -119,10 +119,10 @@
     ORDER BY sneaker.sold ASC, sneaker.sneakerID ASC";
 
 
-$result = $conn->query($sql);
-if ($result->num_rows > 0) {
-    echo
-      '<table id="myTable">
+        $result = $conn->query($sql);
+        if ($result->num_rows > 0) {
+            echo
+                '<table id="myTable">
       <tr>
       <th>ID</th>
       <th>Sneaker</th>
@@ -143,13 +143,13 @@ if ($result->num_rows > 0) {
       <th style="width:150px" >Progress</th>
       </tr>';
 
- // output data of each row
-  while($row = $result->fetch_assoc()) {
-    $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);
-    $row['purchase_invoice'] = str_replace("0", "", $row['purchase_invoice']);
-    $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
+            // output data of each row
+            while ($row = $result->fetch_assoc()) {
+                $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);
+                $row['purchase_invoice'] = str_replace("0", "", $row['purchase_invoice']);
+                $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
 
-    echo "<tr>
+                echo "<tr>
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
      <td>" . $row['sku'] . "</td>
@@ -167,16 +167,16 @@ if ($result->num_rows > 0) {
      <td>" . $row['invoiceNumber'] . '</td>
 
      <td style="font-size:14px">' . $row['statusName'] . '</td>
-     <td>' .'<div style="width:"100%" class="light-grey"><div class="' .$row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>'.
-     "</td>
+     <td>' . '<div style="width:"100%" class="light-grey"><div class="' . $row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>' .
+                    "</td>
      </tr>";
-    }
-    echo "</table>";
-  } else {
-    echo "0 results";
-  }
-  $conn->close();
-  ?>
+            }
+            echo "</table>";
+        } else {
+            echo "0 results";
+        }
+        $conn->close();
+        ?>
     </div>
     <div>
         <p><span style='color:red;'>*</span> <span style='color:white;'>= These sneakers are from the deposit and only
