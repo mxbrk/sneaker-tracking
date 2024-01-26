@@ -14,7 +14,7 @@
         <h1>Your sneaker entry was succesfully updated with all selling information</h1>
         <div>
             <form>
-                <input onclick="window.location.href='sell_page.php'" id="button" type="button"
+                <input onclick="window.location.href='sell_landing_page.php'" id="button" type="button"
                     value="Sell another sneaker" />
             </form>
             <form>
