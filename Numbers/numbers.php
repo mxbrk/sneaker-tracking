@@ -21,7 +21,8 @@
       die("Connection failed: " . $conn->connect_error);
     }
 
-    $sql = "SELECT FORMAT(SUM(buying_price),2, 'de_DE')as buying_price,
+    $sql = "SELECT 
+            FORMAT(SUM(buying_price),2, 'de_DE')as buying_price,
             FORMAT(sum(selling_price),2, 'de_DE') as selling_price,
             FORMAT(sum(shipping_fee) + sum(transaction_fee),2, 'de_DE') as fees,
             FORMAT(sum(payout),2, 'de_DE') as payout,
@@ -49,8 +50,7 @@
     if ($result2->num_rows > 0) {
       // output data of each row
       while ($row = $result2->fetch_assoc()) {
-        echo "In stock: " . $row["buying_price"] . " €" . " / " . $row["sold"] . " pairs" . "<br>" . "<br>" .
-          "The inventory started with 29 pairs" . "<br>" .
+        echo "In stock: " . $row["buying_price"] . " €" . " / " . $row["sold"] . " pairs" . "<br>" .
           "<hr>";
       }
     } else {
@@ -66,9 +66,9 @@
            FORMAT(sum(buying_price),2, 'de_DE') as buying_price,
            FORMAT(ROUND( ((sum(profit) / sum(buying_price)) * 100), 2),2, 'de_DE') as roi,
            FORMAT(ROUND( ((sum(profit) / sum(payout)) * 100), 2),2, 'de_DE') as ros,
-           FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1), 2),2, 'de_DE') as avg_profit_month
+           FORMAT(ROUND(sum(profit) / (TIMESTAMPDIFF(MONTH, CONCAT(YEAR(now()), '-01-01'), now()) +1), 2),2, 'de_DE') as avg_profit_month
            /*Implement AVG Bought/Sold pairs per month*/
-           FROM sneaker WHERE sold = 1  AND sell_date >= '2023-02-21'";
+           FROM sneaker WHERE sold = 1  AND sell_date >= CONCAT(YEAR(now()), '-01-01')";
 
     $result3 = $conn->query($sql3);
     if ($result3->num_rows > 0) {
@@ -94,8 +94,8 @@
     }
 
     $sql4 = "SELECT
-        FORMAT(ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1),2), 2, 'de_DE') as avg_bought_month
-        FROM sneaker WHERE buy_date >= '2023-02-21'";
+        FORMAT(ROUND(count(sneakerID) / (TIMESTAMPDIFF(MONTH, CONCAT(YEAR(now()), '-01-01'), now()) +1),2), 2, 'de_DE') as avg_bought_month
+        FROM sneaker WHERE buy_date >= CONCAT(YEAR(now()), '-01-01')";
 
     $result4 = $conn->query($sql4);
     if ($result4->num_rows > 0) {
@@ -107,8 +107,8 @@
       echo "0 results";
     }
     $sql5 = "SELECT
-         FORMAT(ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, '2023-02-21', now()) +1),2), 2, 'de_DE') as avg_sold_month
-         FROM sneaker WHERE sold = 1 AND sell_date >= '2023-02-21'";
+         FORMAT(ROUND(count(sold) / (TIMESTAMPDIFF(MONTH, CONCAT(YEAR(now()), '-01-01'), now()) +1),2), 2, 'de_DE') as avg_sold_month
+         FROM sneaker WHERE sold = 1 AND sell_date >= CONCAT(YEAR(now()), '-01-01')";
 
     $result5 = $conn->query($sql5);
     if ($result5->num_rows > 0) {
@@ -119,7 +119,7 @@
     } else {
       echo "0 results";
     }
-    $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),0, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%'";
+    $sql6 = "SELECT FORMAT(ROUND(AVG(DATEDIFF(`sell_date`, `buy_date`)),0),0, 'de_DE') as 'tts'FROM `sneaker` WHERE sold = 1 AND colorway NOT LIKE '%*%' AND `sell_date` >= CONCAT(YEAR(now()), '-01-01')";
     $result6 = $conn->query($sql6);
     if ($result6->num_rows > 0) {
       // output data of each row
