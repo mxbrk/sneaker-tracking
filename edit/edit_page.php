@@ -50,7 +50,48 @@ session_start();
                 <option <?php if($sneakerInfo[brand] == 'Converse'){echo('selected="selected"');}?>value="Converse">
                     Converse
                 </option>
-
+                <option <?php if($sneakerInfo[brand] == 'Reebok'){echo('selected="selected"');}?>value="Reebok">
+                Reebok
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Onitsuka Tiger'){echo('selected="selected"');}?>value="Onitsuka Tiger">
+                Onitsuka Tiger
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Hoka'){echo('selected="selected"');}?>value="Hoka">
+                Hoka
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Salomon'){echo('selected="selected"');}?>value="Salomon">
+                Salomon
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Autry'){echo('selected="selected"');}?>value="Autry">
+                Autry
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Karhu'){echo('selected="selected"');}?>value="Karhu">
+                Karhu
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Represent Clo'){echo('selected="selected"');}?>value="Represent Clo">
+                Represent Clo
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Axel Arigato'){echo('selected="selected"');}?>value="Axel Arigato">
+                Axel Arigato
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'On'){echo('selected="selected"');}?>value="On">
+                On
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Mizuno'){echo('selected="selected"');}?>value="Mizuno">
+                Mizuno
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Diadora'){echo('selected="selected"');}?>value="Diadora">
+                Diadora
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Brooks'){echo('selected="selected"');}?>value="Brooks">
+                Brooks
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Saucony'){echo('selected="selected"');}?>value="Saucony">
+                Saucony
+                </option>
+                <option <?php if($sneakerInfo[brand] == 'Others'){echo('selected="selected"');}?>value="Others">
+                Others
+                </option>
             </select>
 
             <label id="icon" for="sku"></label>

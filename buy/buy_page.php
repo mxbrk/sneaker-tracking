@@ -21,9 +21,25 @@
                 <option value="Nike">Nike</option>
                 <option value="Nike Air Jordan">Nike Air Jordan</option>
                 <option value="New Balance">New Balance</option>
+                <option value="Asics">Asics</option>
                 <option value="Puma">Puma</option>
+                <option value="Vans">Vans</option>
                 <option value="Crocs">Crocs</option>
                 <option value="Converse">Converse</option>
+                <option value="Reebok">Reebok</option>
+                <option value="Onitsuka Tiger">Onitsuka Tiger</option>
+                <option value="Hoka">Hoka</option>
+                <option value="Salomon">Salomon</option>
+                <option value="Autry">Autry</option>
+                <option value="Karhu">Karhu</option>
+                <option value="Represent Clo">Represent Clo</option>
+                <option value="Axel Arigato">Axel Arigato</option>
+                <option value="On">On</option>
+                <option value="Mizuno">Mizuno</option>
+                <option value="Diadora">Diadora</option>
+                <option value="Brooks">Brooks</option>
+                <option value="Saucony">Saucony</option>
+                <option value="Others">Others</option>
             </select>
 
             <label id="icon" for="sku"></label>
