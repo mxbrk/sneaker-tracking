@@ -50,6 +50,9 @@ session_start();
                 <option <?php if($sneakerInfo[brand] == 'Converse'){echo('selected="selected"');}?>value="Converse">
                     Converse
                 </option>
+                <option <?php if($sneakerInfo[brand] == 'Asics'){echo('selected="selected"');}?>value="Asics">
+                Asics
+                </option>
                 <option <?php if($sneakerInfo[brand] == 'Reebok'){echo('selected="selected"');}?>value="Reebok">
                 Reebok
                 </option>
