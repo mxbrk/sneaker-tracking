@@ -7,6 +7,7 @@
     <title>STB-Buy</title>
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <script src="..\js\skuUppercase.js"></script>
 </head>
 
 <body>
@@ -43,7 +44,7 @@
             </select>
 
             <label id="icon" for="sku"></label>
-            <input type="text" name="sku" id="sku" placeholder="SKU" required />
+            <input type="text" name="sku" onkeyup="skuUppercase()" id="sku" placeholder="SKU" required />
 
             <label id="icon" for="modell"></label>
             <input type="text" name="modell" id="modell" placeholder="Model" required />
