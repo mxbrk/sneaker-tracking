@@ -1,0 +1,75 @@
+body {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: #00001a;
+  }
+  .main-block {
+    height: auto;
+    border-radius: 20px;
+    box-sizing: border-box;
+    max-width: 340px;
+    min-height: 460px;
+    padding: 10px 0;
+    margin: auto;
+    background: #15172b;
+  }
+  h1 {
+    padding: 10px 0;
+    font-size: 32px;
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+    text-align: center;
+    color: #ffffff;
+  }
+  .link {
+    font-family: sans-serif;
+    font-size: 16px;
+    color: #eee;
+    /*    text-decoration: none;*/
+  }
+  #button {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+    width: 280px;
+  }
+  #button:hover {
+    background: #008cff;
+  }
+  /*    .subtitle {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+      }*/
+  
+    #calcFeesInput {
+    height: 33px;
+    width: 110px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    font-size: 18px;
+    display: inline;
+    }
+
+    #calcFeesForm {
+    margin: 10px;
+    }
+      

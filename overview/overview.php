@@ -8,8 +8,6 @@
     <link rel="shortcut icon" href="/Sneaker_Red.png">
     <script src="..\js\searchFunction.js"></script>
     <script src="..\js\updateIDAlert.js"></script>
-    <script src="..\js\calcFees.js"></script>
-
 </head>
 
 <body>
@@ -24,6 +22,7 @@
             <li><a href="/numbers/numbers.php">Numbers</a> </li>
             <li><a href="/overview/overview.php">Overview</a> </li>
             <li><a href="/edit/edit_landing_page.php">Edit</a> </li>
+            <li><a href="/tools/tools.php">Tools</a> </li>
         </ul>
     </nav>
     <div>
