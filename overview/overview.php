@@ -44,11 +44,8 @@
             </select>
             <button id="button" type="submit" value="Submit">Submit</button>
         </form>
-
-        <form id="calcFeesForm">
+        <form id="searchSneaker">
             <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker">
-            <input type="number" id="calcFeesInput" name="calcFeesInput" placeholder="Net-Price" step="0.01" required>
-            <button id="button" type="button" onclick="calcFees()">Calculate</button>
         </form>
     </div>
 
