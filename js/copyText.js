@@ -7,7 +7,7 @@ function copyMarkAsPayed() {
   }
 
   function copyShippingAdress() {
-    var copyText = "Versandadresse ist:\nMaximilian Bronkhorst\nAfrikanische Straße 23\n13351 Berlin";
+    var copyText = "Versandadresse ist:";
   
     navigator.clipboard.writeText(copyText);
   
