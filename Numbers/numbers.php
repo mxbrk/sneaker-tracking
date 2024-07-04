@@ -27,6 +27,7 @@
             FORMAT(sum(shipping_fee) + sum(transaction_fee),2, 'de_DE') as fees,
             FORMAT(sum(payout),2, 'de_DE') as payout,
             FORMAT(sum(profit),2, 'de_DE') as profit,
+            max(invoiceNumber) as invoiceNumber,
             count(sneakerID) as amount
             FROM sneaker";
 
@@ -35,6 +36,7 @@
       // output data of each row
       while ($row = $result->fetch_assoc()) {
         echo "<hr>" .
+          "Current Invoice# " . $row["invoiceNumber"] . "<br>" . "<br>" . 
           "Invest  (since 20.02.2023): " . $row["buying_price"] . " €  " . "/ " . $row["amount"] . " pairs" . "<br>" . "<br>" .
           "Payout  (since 20.02.2023): " . $row["payout"] . " €" . "<br>" . "<br>";
       }
