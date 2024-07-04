@@ -36,7 +36,7 @@ session_start();
 
             <label id="icon" for="sell_date"></label>
             <input type="text" name="sell_date" id="sell_date" name="sell_date" placeholder="Sell date"
-                value="<?php echo $sneakerInfo[sell_date]  ?>" value="<?php echo date('Y-m-d'); ?>" required onfocus="(this.type='date')" />
+                value="<?php echo $sneakerInfo[sell_date] == true ? $sneakerInfo[sell_date] : date('Y-m-d'); ?>" required onfocus="(this.type='date')" />
 
             <label id="icon" for="sell_shop"></label>
             <select id="select" name="sell_shop" required autofocus>
