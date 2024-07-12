@@ -12,7 +12,7 @@
     <div class="main-block">
     <h1>Tools</h1>
     <form id="calcFeesForm">
-            <input type="number" id="calcFeesInput" name="calcFeesInput" placeholder="Net-Price" step="0.01" required>
+            <input type="number" id="calcFeesInput" name="calcFeesInput" placeholder="Net-Price" step="0.01" required autofocus>
             <button id="button" type="button" onclick="calcFees()">Calculate</button>
     </form>
     <button id="button" type="button" onclick="copyShippingAdress()">Copy shipping adress</button> 
