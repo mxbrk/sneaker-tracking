@@ -25,9 +25,8 @@
         </ul>
     </nav>
     <div>
-        <form id="submitForm" action="update_progress.php" onsubmit="return approveAlert(this)" method="POST">
-            <input style="width:70px" type="number" name="sneakerID" id="sneakerID" placeholder="ID" step="1" required autofocus />
-            <select id="select" name="status" required>
+        <div>
+            <select id="bulkStatus">
                 <option value="" disabled selected>Select the status</option>
                 <option value="delete_id">Delete ID</option>
                 <option value="unsold">Unsold</option>
@@ -37,11 +36,11 @@
                 <option value="sold_item">Sold</option>
                 <option value="shipped_to_buyer">Shipped to buyer</option>
                 <option value="payout">Payout</option>
-                <option style="border-bottom-left-radius: 10px; border-bottom-right-radius: 10px"
-                    value="submit_sell_info">Sell-info submitted</option>
+                <option value="submit_sell_info">Sell-info submitted</option>
             </select>
-            <button id="button" type="submit" value="Submit">Submit</button>
-        </form>
+            <button id="bulkUpdateButton">Submit</button>
+        </div>
+
         <form id="searchSneaker">
             <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker">
         </form>
@@ -119,6 +118,7 @@
             echo
                 '<table id="myTable">
       <tr>
+      <th><input type="checkbox" id="selectAll"></th> <!-- Master Checkbox -->
       <th>ID</th>
       <th>Sneaker</th>
       <th>SKU</th>
@@ -145,6 +145,7 @@
                 $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
 
                 echo "<tr>
+     <td><input type='checkbox' class='sneakerCheckbox' value='" . $row['sneakerID'] . "'></td>
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
      <td>" . $row['sku'] . "</td>
@@ -179,6 +180,35 @@
                 profit remains on the corporate bank account.
                 <br> The amount of the purchase price goes back to SK with an indication of the old ID.</span> </p>
     </div>
+    <script>
+        document.getElementById("bulkUpdateButton").addEventListener("click", function () {
+            let selectedIDs = [];
+            document.querySelectorAll(".sneakerCheckbox:checked").forEach((checkbox) => {
+                selectedIDs.push(checkbox.value);
+            });
+
+            let newStatus = document.getElementById("bulkStatus").value;
+            if (selectedIDs.length === 0 || newStatus === "") {
+                alert("Bitte mindestens einen Sneaker auswählen und einen Status setzen!");
+                return;
+            }
+
+            let formData = new FormData();
+            formData.append("sneakerIDs", JSON.stringify(selectedIDs));
+            formData.append("status", newStatus);
+
+            fetch("bulk_update_progress.php", {
+                method: "POST",
+                body: formData,
+            })
+            .then((response) => response.text())
+            .then((data) => {
+                alert("Status erfolgreich aktualisiert!");
+                location.reload();
+            })
+            .catch((error) => console.error("Fehler:", error));
+        });
+    </script>
 </body>
 
 </html>
