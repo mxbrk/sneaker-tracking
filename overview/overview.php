@@ -1,52 +1,123 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-<head>
-    <link rel='stylesheet' media='screen' href='..\css\overview.css'>
-    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STB-Overview</title>
-    <link rel="shortcut icon" href="/Sneaker_Red.png">
-    <script src="..\js\searchFunction.js"></script>
-    <script src="..\js\updateIDAlert.js"></script>
-</head>
 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STB Overview</title>
+    <link rel="shortcut icon" href="/Sneaker_Red.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/searchFunction.js"></script>
+    <script src="../js/updateIDAlert.js"></script>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .table-container {
+            overflow-x: auto;
+            width: 100%;
+        }
+        .progress-bar {
+            text-align: center;
+            font-weight: bold;
+        }
+        .nowrap {
+            white-space: nowrap;
+        }
+        .navbar-nav {
+            width: 100%;
+            justify-content: space-around;
+        }
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .filter-container select,
+        .filter-container button,
+        .filter-container input {
+            height: 40px;
+        }
+        .table th, .table td {
+            text-align: center;
+            vertical-align: middle;
+        }
+        .table {
+            width: 100%;
+        }
+    </style>
+</head>
 <body>
-    <h1>Overview</h1>
-    <nav>
-        <input type="checkbox" id="burger">
-        <ul id="navigation">
-            <li><a href="../index.html">Home</a> </li>
-            <li><a href="/stores/stores.html">Stores</a> </li>
-            <li><a href="/buy/buy_page.php">Buy</a> </li>
-            <li><a href="/sell/sell_landing_page.php">Sell</a> </li>
-            <li><a href="/numbers/numbers.php">Numbers</a> </li>
-            <li><a href="/overview/overview.php">Overview</a> </li>
-            <li><a href="/edit/edit_landing_page.php">Edit</a> </li>
-            <li><a href="/tools/tools.php">Tools</a> </li>
-        </ul>
-    </nav>
-    <div>
-        <div>
-            <select id="bulkStatus">
-                <option value="" disabled selected>Select the status</option>
+    <div class="container-fluid my-4">
+        <h1 class="text-center mb-4">Overview</h1>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark rounded">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/stores/stores.html">Stores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/buy/buy_page.php">Buy</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/sell/sell_landing_page.php">Sell</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/numbers/numbers.php">Numbers</a></li>
+                        <li class="nav-item"><a class="nav-link active" href="/overview/overview.php">Overview</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/edit/edit_landing_page.php">Edit</a></li>
+                        <li class="nav-item"><a class="nav-link" href="/tools/tools.php">Tools</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="filter-container my-3">
+            <input type="search" id="searchInput" class="form-control w-25" onkeyup="searchFunction()" placeholder="Search...">
+            <select id="bulkStatus" class="form-select w-25">
+                <option value="" disabled selected>Status wählen</option>
                 <option value="delete_id">Delete ID</option>
                 <option value="unsold">Unsold</option>
                 <option value="payed">Payed</option>
                 <option value="arrived">Arrived</option>
-                <option value="listing_item">Listed for selling</option>
+                <option value="listing_item">Listed</option>
                 <option value="sold_item">Sold</option>
-                <option value="shipped_to_buyer">Shipped to buyer</option>
+                <option value="shipped_to_buyer">Shipped</option>
                 <option value="payout">Payout</option>
                 <option value="submit_sell_info">Sell-info submitted</option>
             </select>
-            <button id="bulkUpdateButton">Submit</button>
+            <button id="bulkUpdateButton" class="btn btn-primary">Submit</button>
         </div>
 
-        <form id="searchSneaker">
-            <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker">
-        </form>
-    </div>
-
-    <div class="table">
+        <div class="table-container">
+            <table class="table table-striped table-hover w-100">
+                <thead class="table-dark">
+                    <tr>
+                        <th><input type="checkbox" id="selectAll"></th>
+                        <th>ID</th>
+                        <th class="nowrap">Sneaker</th>
+                        <th>SKU</th>
+                        <th>Condition</th>
+                        <th>Age</th>
+                        <th>Size</th>
+                        <th>Invoice</th>
+                        <th>Buy shop</th>
+                        <th>Sell shop</th>
+                        <th>Buy price</th>
+                        <th>Sell price</th>
+                        <th>Fees</th>
+                        <th>Payout</th>
+                        <th>Profit</th>
+                        <th>Sales-Inv.</th>
+                        <th>Status</th>
+                        <th>Progress</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tbody>
+                <div class="table">
         <?php
         include '../db_config.php';
         // Create connection
@@ -115,29 +186,6 @@
 
         $result = $conn->query($sql);
         if ($result->num_rows > 0) {
-            echo
-                '<table id="myTable">
-      <tr>
-      <th><input type="checkbox" id="selectAll"></th> <!-- Master Checkbox -->
-      <th>ID</th>
-      <th>Sneaker</th>
-      <th>SKU</th>
-      <th>Condition</th>
-      <th>Age</th>
-      <th>Size</th>
-      <th>Invoice</th>
-      <th>Buy shop</th>
-      <th>Sell shop</th>
-      <th>Buy price</th>
-      <th>Sell price</th>
-      <th>Fees</th>
-      <th>Payout</th>
-      <th>Profit</th>
-      <th>Sales-Inv.</th>
-      <th style="width:120px">Status</th>
-      <th style="width:150px" >Progress</th>
-      </tr>';
-
             // output data of each row
             while ($row = $result->fetch_assoc()) {
                 $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);
@@ -145,7 +193,6 @@
                 $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
 
                 echo "<tr>
-     <td><input type='checkbox' class='sneakerCheckbox' value='" . $row['sneakerID'] . "'></td>
      <td>" . $row['sneakerID'] . "</td>
      <td>" . $row['sneaker'] . "</td>
      <td>" . $row['sku'] . "</td>
@@ -174,41 +221,13 @@
         $conn->close();
         ?>
     </div>
-    <div>
-        <p><span style='color:red;'>*</span> <span style='color:white;'>= These sneakers are from the deposit and only
-                the
-                profit remains on the corporate bank account.
-                <br> The amount of the purchase price goes back to SK with an indication of the old ID.</span> </p>
+                </tbody>
+            </table>
+        </div>
     </div>
-    <script>
-        document.getElementById("bulkUpdateButton").addEventListener("click", function () {
-            let selectedIDs = [];
-            document.querySelectorAll(".sneakerCheckbox:checked").forEach((checkbox) => {
-                selectedIDs.push(checkbox.value);
-            });
-
-            let newStatus = document.getElementById("bulkStatus").value;
-            if (selectedIDs.length === 0 || newStatus === "") {
-                alert("Bitte mindestens einen Sneaker auswählen und einen Status setzen!");
-                return;
-            }
-
-            let formData = new FormData();
-            formData.append("sneakerIDs", JSON.stringify(selectedIDs));
-            formData.append("status", newStatus);
-
-            fetch("bulk_update_progress.php", {
-                method: "POST",
-                body: formData,
-            })
-            .then((response) => response.text())
-            .then((data) => {
-                alert("Status erfolgreich aktualisiert!");
-                location.reload();
-            })
-            .catch((error) => console.error("Fehler:", error));
-        });
-    </script>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
-
 </html>
