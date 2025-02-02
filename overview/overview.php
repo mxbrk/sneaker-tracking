@@ -8,108 +8,81 @@
 <script src="../js/searchFunction.js"></script>
 <script src="../js/updateIDAlert.js"></script>
 <style>
-    .table-container {
-        max-width: 90%;
-        margin: auto;
-    }
-
-    .form-container {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .form-container select,
-    .form-container input,
-    .form-container button {
-        flex: none;
-        width: auto;
-    }
-
-    .table th,
-    .table td {
-        white-space: nowrap;
+    body {
+        background-color: #00001a !important;
     }
 </style>
-</head>
-
-<body class="bg-dark text-light">
-    <div class="container mt-4">
-        <h1 class="text-center">Overview</h1>
-
-        <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-3">
-            <div class="container-fluid">
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav me-auto">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/stores/stores.html">Stores</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/buy/buy_page.php">Buy</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/sell/sell_landing_page.php">Sell</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/numbers/numbers.php">Numbers</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="/overview/overview.php">Overview</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/edit/edit_landing_page.php">Edit</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/tools/tools.php">Tools</a></li>
-                    </ul>
-                    <div class="d-flex">
-                        <select id="bulkStatus" class="form-select me-2">
-                            <option value="" disabled selected>Select the status</option>
-                            <option value="delete_id">Delete ID</option>
-                            <option value="unsold">Unsold</option>
-                            <option value="payed">Payed</option>
-                            <option value="arrived">Arrived</option>
-                            <option value="listing_item">Listed for selling</option>
-                            <option value="sold_item">Sold</option>
-                            <option value="shipped_to_buyer">Shipped to buyer</option>
-                            <option value="payout">Payout</option>
-                            <option value="submit_sell_info">Sell-info submitted</option>
-                        </select>
-                        <button id="bulkUpdateButton" class="btn btn-success me-2">Submit</button>
-                        <input type="search" id="searchInput" onkeyup="searchFunction()"
-                            placeholder="Search for sneaker" class="form-control">
-                    </div>
-                </div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link text-light" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/stores/stores.html">Stores</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/buy/buy_page.php">Buy</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/sell/sell_landing_page.php">Sell</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/numbers/numbers.php">Numbers</a></li>
+                <li class="nav-item"><a class="nav-link text-warning border-bottom border-warning"
+                        href="/overview/overview.php">Overview</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/edit/edit_landing_page.php">Edit</a></li>
+                <li class="nav-item"><a class="nav-link text-light" href="/tools/tools.php">Tools</a></li>
+            </ul>
+            <div class="d-flex">
+                <select id="bulkStatus" class="form-select bg-white text-dark border-dark me-2">
+                    <option value="" disabled selected>Select the status</option>
+                    <option value="delete_id">Delete ID</option>
+                    <option value="unsold">Unsold</option>
+                    <option value="payed">Payed</option>
+                    <option value="arrived">Arrived</option>
+                    <option value="listing_item">Listed for selling</option>
+                    <option value="sold_item">Sold</option>
+                    <option value="shipped_to_buyer">Shipped to buyer</option>
+                    <option value="payout">Payout</option>
+                    <option value="submit_sell_info">Sell-info submitted</option>
+                </select>
+                <button id="bulkUpdateButton" class="btn btn-info text-dark border-dark me-2">Submit</button>
+                <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker"
+                    class="form-control bg-white text-dark border-dark">
             </div>
-        </nav>
+        </div>
     </div>
+</nav>
 
 
-    <div class="table-responsive">
-        <table class="table table-dark table-striped table-hover">
-            <thead>
-                <tr>
-                    <th><input type="checkbox" id="selectAll"></th>
-                    <th>ID</th>
-                    <th>Sneaker</th>
-                    <th>SKU</th>
-                    <th>Condition</th>
-                    <th>Age</th>
-                    <th>Size</th>
-                    <th>Invoice</th>
-                    <th>Buy shop</th>
-                    <th>Sell shop</th>
-                    <th>Buy price</th>
-                    <th>Sell price</th>
-                    <th>Fees</th>
-                    <th>Payout</th>
-                    <th>Profit</th>
-                    <th>Sales-Inv.</th>
-                    <th>Status</th>
-                    <th>Progress</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include '../db_config.php';
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
+<div class="table-responsive">
+    <table id="myTable" class="table table-dark table-striped table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>ID</th>
+                <th>Sneaker</th>
+                <th>SKU</th>
+                <th>Condition</th>
+                <th>Age</th>
+                <th>Size</th>
+                <th>Invoice</th>
+                <th>Buy shop</th>
+                <th>Sell shop</th>
+                <th>Buy price</th>
+                <th>Sell price</th>
+                <th>Fees</th>
+                <th>Payout</th>
+                <th>Profit</th>
+                <th>Sales-Inv.</th>
+                <th>Status</th>
+                <th>Progress</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            include '../db_config.php';
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            if ($conn->connect_error) {
+                die("Connection failed: " . $conn->connect_error);
+            }
+            $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway)
                 as sneaker,
                 sneaker.sku,
                 CASE sneaker.itemCondition
@@ -166,39 +139,42 @@
                 FROM sneaker
                 LEFT JOIN progress ON sneaker.sneakerID=progress.sneakerID
                 ORDER BY sneaker.sold ASC, sneaker.sneakerID ASC";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td><input type='checkbox' class='sneakerCheckbox' value='" . $row['sneakerID'] . "'></td>";
-                        echo "<td>" . $row['sneakerID'] . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sneaker']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['itemCondition']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['age']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['size']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['purchase_invoice']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['buy_shop']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sell_shop']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['buying_price']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['selling_price']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['fees']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['payout']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['profit']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
-                        echo "<td><div class='progress'><div class='progress-bar bg-success' style='width:" . $row['status'] . "%' >" . $row['status'] . "%</div></div></td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='18' class='text-center'>No results found</td></tr>";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                while ($row = $result->fetch_assoc()) {
+                    $row['purchase_invoice'] = str_replace("0", "", $row['purchase_invoice']);
+                    $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
+                    $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']);
+                    echo "<tr>";
+                    echo "<td><input type='checkbox' class='sneakerCheckbox' value='" . $row['sneakerID'] . "'></td>";
+                    echo "<td>" . $row['sneakerID'] . "</td>";
+                    echo "<td>" . $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['itemCondition']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['age']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['size']) . "</td>";
+                    echo "<td>" . $row['purchase_invoice'] . "</td>";
+                    echo "<td>" . htmlspecialchars($row['buy_shop']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['sell_shop']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['buying_price']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['selling_price']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['fees']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['payout']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['profit']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
+                    echo "<td><div class='progress'><div class='progress-bar bg-success' style='width:" . $row['status'] . "%' >" . $row['status'] . "%</div></div></td>";
+                    echo "</tr>";
                 }
-                $conn->close();
-                ?>
-            </tbody>
-        </table>
-    </div>
-    </div>
+            } else {
+                echo "<tr><td colspan='18' class='text-center'>No results found</td></tr>";
+            }
+            $conn->close();
+            ?>
+        </tbody>
+    </table>
+</div>
+</div>
 </body>
 
 </html>
