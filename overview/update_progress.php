@@ -1,44 +1,105 @@
 <?php
+/* Attempt MySQL server connection. Assuming you are running MySQL
+server with default setting (user 'root' with no password) */
 include '../db_config.php';
 $link = mysqli_connect($servername, $username, $password, $dbname);
 
-if ($link === false) {
-    die("ERROR: Could not connect. " . mysqli_connect_error());
+// Check connection
+if($link === false){
+   die("ERROR: Could not connect. " . mysqli_connect_error());
 }
 
-// Empfange die JSON-Daten
-$sneakerIDs = json_decode($_POST['sneakerIDs'], true);
-$status = mysqli_real_escape_string($link, $_POST['status']);
+// Escape user inputs for security
+$sneakerID = mysqli_real_escape_string($link, $_REQUEST['sneakerID']);
+$status = mysqli_real_escape_string($link, $_REQUEST['status']);
 
-if (empty($sneakerIDs) || empty($status)) {
-    die("ERROR: Keine gültigen Daten empfangen.");
+
+switch ($status) {
+    case "payed":
+      $sql1 = "UPDATE progress SET status ='2', payed='1', arrived='0', listing_item='0', sold_item='0', shipped_to_buyer='0',submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql1)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql1. " . mysqli_error($link);
+            }
+        break;
+    case "arrived":
+      $sql2 = "UPDATE progress SET status ='4', payed='1', arrived='1', listing_item='0', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql2)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql2. " . mysqli_error($link);
+            }
+        break;
+    case "listing_item":
+      $sql3 = "UPDATE progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql3)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql3. " . mysqli_error($link);
+            }
+        break;
+    case "sold_item":
+      $sql4 = "UPDATE progress SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql4)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql4. " . mysqli_error($link);
+            }
+        break;
+    case "shipped_to_buyer":
+      $sql5 = "UPDATE progress SET  status ='7', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql5)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql5. " . mysqli_error($link);
+            }
+        break;
+    case "submit_sell_info":
+      $sql9 = "UPDATE progress SET status ='9' , payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='0' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql9)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql9. " . mysqli_error($link);
+            }
+        break;
+    case "payout":
+      $sql10 = "UPDATE progress SET status ='8', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='1' WHERE sneakerID = '$sneakerID'";
+            if(mysqli_query($link, $sql10)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql10. " . mysqli_error($link);
+            }
+        break;
+      case "delete_id":
+         $sql11 = "DELETE FROM sneaker WHERE sneakerID = '$sneakerID'; ";
+         $sql11 .= "DELETE FROM progress WHERE sneakerID = '$sneakerID'";
+            if(mysqli_multi_query($link, $sql11)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql11. " . mysqli_error($link);
+            }
+         break;
+      case "unsold":
+         $sql12 = "UPDATE progress SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0' WHERE sneakerID = '$sneakerID'; ";
+         $sql12 .= "UPDATE sneaker SET sold='0', sell_shop= NULL, sell_date= NULL, selling_price= NULL, shipping_fee= NULL, transaction_fee= NULL, payout= NULL, profit= NULL, invoiceNumber= NULL WHERE sneakerID = '$sneakerID'";
+         if(mysqli_multi_query($link, $sql12)){
+               header('Location: overview.php');
+               echo "Succes";
+            } else{
+               echo "ERROR: Could not execute $sql12. " . mysqli_error($link);
+            }
+         break;
+      
 }
-
-// Status Mapping
-$statusMapping = [
-    "payed" => "SET status ='2', payed='1', arrived='0', listing_item='0', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0'",
-    "arrived" => "SET status ='4', payed='1', arrived='1', listing_item='0', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0'",
-    "listing_item" => "SET status ='5', payed='1', arrived='1', listing_item='1', sold_item='0', shipped_to_buyer='0', submit_sell_info='0', payout='0'",
-    "sold_item" => "SET status ='6', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='0', submit_sell_info='0', payout='0'",
-    "shipped_to_buyer" => "SET status ='7', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='0', payout='0'",
-    "submit_sell_info" => "SET status ='9', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='0'",
-    "payout" => "SET status ='8', payed='1', arrived='1', listing_item='1', sold_item='1', shipped_to_buyer='1', submit_sell_info='1', payout='1'"
-];
-
-if ($status === "delete_id") {
-    $sql = "DELETE FROM sneaker WHERE sneakerID IN (" . implode(",", array_map('intval', $sneakerIDs)) . ")";
-    $sql .= "; DELETE FROM progress WHERE sneakerID IN (" . implode(",", array_map('intval', $sneakerIDs)) . ")";
-} elseif (isset($statusMapping[$status])) {
-    $sql = "UPDATE progress " . $statusMapping[$status] . " WHERE sneakerID IN (" . implode(",", array_map('intval', $sneakerIDs)) . ")";
-} else {
-    die("ERROR: Ungültiger Status.");
-}
-
-if (mysqli_multi_query($link, $sql)) {
-    echo "Success";
-} else {
-    echo "ERROR: " . mysqli_error($link);
-}
-
+// Close connection
 mysqli_close($link);
 ?>
