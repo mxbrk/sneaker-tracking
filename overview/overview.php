@@ -39,53 +39,54 @@
 
 
 <div class="table-responsive">
-<form id="submitForm" action="update_progress.php" onsubmit="return approveAlert(this)" method="POST">
-    <select id="select" name="status" class="form-select bg-white text-dark border-dark me-2">
-        <option value="" disabled selected>Select the status</option>
-        <option value="delete_id">Delete ID</option>
-        <option value="unsold">Unsold</option>
-        <option value="payed">Payed</option>
-        <option value="arrived">Arrived</option>
-        <option value="listing_item">Listed for selling</option>
-        <option value="sold_item">Sold</option>
-        <option value="shipped_to_buyer">Shipped to buyer</option>
-        <option value="payout">Payout</option>
-        <option value="submit_sell_info">Sell-info submitted</option>
-    </select>
-    <button type="submit" id="bulkUpdateButton" class="btn btn-info text-dark border-dark me-2">Submit</button>
-
-    <div class="table-responsive">
-        <table id="myTable" class="table table-dark table-striped table-hover">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th>ID</th>
-                    <th>Sneaker</th>
-                    <th>SKU</th>
-                    <th>Condition</th>
-                    <th>Age</th>
-                    <th>Size</th>
-                    <th>Invoice</th>
-                    <th>Buy shop</th>
-                    <th>Sell shop</th>
-                    <th>Buy price</th>
-                    <th>Sell price</th>
-                    <th>Fees</th>
-                    <th>Payout</th>
-                    <th>Profit</th>
-                    <th>Sales-Inv.</th>
-                    <th>Status</th>
-                    <th>Progress</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                include '../db_config.php';
-                $conn = new mysqli($servername, $username, $password, $dbname);
-                if ($conn->connect_error) {
-                    die("Connection failed: " . $conn->connect_error);
-                }
-                $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway) as sneaker,
+    <form id="submitForm" action="update_progress.php" onsubmit="return approveAlert()" method="POST">
+            <div class="d-flex align-items-center gap-2">
+                <select id="select" name="status" class="form-select bg-white text-dark border-dark w-auto">
+                    <option value="" disabled selected>Select the status</option>
+                    <option value="delete_id">Delete ID</option>
+                    <option value="unsold">Unsold</option>
+                    <option value="payed">Payed</option>
+                    <option value="arrived">Arrived</option>
+                    <option value="listing_item">Listed for selling</option>
+                    <option value="sold_item">Sold</option>
+                    <option value="shipped_to_buyer">Shipped to buyer</option>
+                    <option value="payout">Payout</option>
+                    <option value="submit_sell_info">Sell-info submitted</option>
+                </select>
+                <button type="submit" class="btn btn-info text-dark border-dark">Submit</button>
+            </div>
+            <div class="table-responsive">
+                <table id="myTable" class="table table-dark table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th></th>
+                            <th>ID</th>
+                            <th>Sneaker</th>
+                            <th>SKU</th>
+                            <th>Condition</th>
+                            <th>Age</th>
+                            <th>Size</th>
+                            <th>Invoice</th>
+                            <th>Buy shop</th>
+                            <th>Sell shop</th>
+                            <th>Buy price</th>
+                            <th>Sell price</th>
+                            <th>Fees</th>
+                            <th>Payout</th>
+                            <th>Profit</th>
+                            <th>Sales-Inv.</th>
+                            <th>Status</th>
+                            <th>Progress</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include '../db_config.php';
+                        $conn = new mysqli($servername, $username, $password, $dbname);
+                        if ($conn->connect_error) {
+                            die("Connection failed: " . $conn->connect_error);
+                        }
+                        $sql = "SELECT sneaker.sneakerID,CONCAT(sneaker.brand,' ', sneaker.modell,' ', sneaker.colorway) as sneaker,
                     sneaker.sku,
                     CASE sneaker.itemCondition
                     WHEN 'deadstock' THEN 'DS' 
@@ -141,39 +142,42 @@
                     FROM sneaker
                     LEFT JOIN progress ON sneaker.sneakerID=progress.sneakerID
                     ORDER BY sneaker.sold ASC, sneaker.sneakerID ASC";
-                $result = $conn->query($sql);
-                if ($result->num_rows > 0) {
-                    while ($row = $result->fetch_assoc()) {
-                        echo "<tr>";
-                        echo "<td><input type='checkbox' name='sneakerIDs[]' class='sneakerCheckbox' value='" . $row['sneakerID'] . "'></td>";
-                        echo "<td>" . $row['sneakerID'] . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sneaker']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['itemCondition']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['age']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['size']) . "</td>";
-                        echo "<td>" . $row['purchase_invoice'] . "</td>";
-                        echo "<td>" . htmlspecialchars($row['buy_shop']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['sell_shop']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['buying_price']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['selling_price']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['fees']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['payout']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['profit']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
-                        echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
-                        echo "<td><div class='progress'><div class='progress-bar bg-success' style='width:" . $row['status'] . "%' >" . $row['status'] . "%</div></div></td>";
-                        echo "</tr>";
-                    }
-                } else {
-                    echo "<tr><td colspan='18' class='text-center'>No results found</td></tr>";
-                }
-                $conn->close();
-                ?>
-            </tbody>
-        </table>
-    </div>
-</form>
+                        $result = $conn->query($sql);
+                        if ($result->num_rows > 0) {
+                            while ($row = $result->fetch_assoc()) {
+                                $row['purchase_invoice'] = str_replace("0", "", $row['purchase_invoice']);
+                                $row['purchase_invoice'] = str_replace("1", "<span style='color:green;'>&#10004;</span>", $row['purchase_invoice']);
+
+                                echo "<tr>";
+                                echo "<td><input type='checkbox' name='sneakerIDs[]' class='sneakerCheckbox' value='" . $row['sneakerID'] . "'></td>";
+                                echo "<td>" . $row['sneakerID'] . "</td>";
+                                echo "<td>" . $row['sneaker'] = str_replace("*", "<span style='color:red;'>*</span>", $row['sneaker']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['sku']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['itemCondition']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['age']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['size']) . "</td>";
+                                echo "<td>" . $row['purchase_invoice'] . "</td>";
+                                echo "<td>" . htmlspecialchars($row['buy_shop']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['sell_shop']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['buying_price']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['selling_price']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['fees']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['payout']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['profit']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
+                                echo "<td><div class='progress'><div class='progress-bar bg-success' style='width:" . $row['status'] . "%' >" . $row['status'] . "%</div></div></td>";
+                                echo "</tr>";
+                            }
+                        } else {
+                            echo "<tr><td colspan='18' class='text-center'>No results found</td></tr>";
+                        }
+                        $conn->close();
+                        ?>
+                    </tbody>
+                </table>
+            </div>
+    </form>
 </div>
 </body>
 

@@ -53,8 +53,8 @@ session_start();
                     Vinted-System</option>
 
                 <option
-                    <?php if($sneakerInfo[sell_shop] == 'Ebay Kleinanzeigen'){echo('selected="selected"');}?>value="Ebay Kleinanzeigen">
-                    Ebay Kleinanzeigen</option>
+                    <?php if($sneakerInfo[sell_shop] == 'Kleinanzeigen'){echo('selected="selected"');}?>value="Kleinanzeigen">
+                    Kleinanzeigen</option>
                 <option <?php if($sneakerInfo[sell_shop] == 'Ebay'){echo('selected="selected"');}?>value="Ebay">Ebay
                 </option>
                 <option <?php if($sneakerInfo[sell_shop] == 'Others'){echo('selected="selected"');}?>value="Others">

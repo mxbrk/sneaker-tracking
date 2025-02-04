@@ -76,7 +76,7 @@
                 <option value="Vinted-System">Vinted-System</option>
                 <option value="Confirmed">Confirmed</option>
                 <option value="Ebay">Ebay</option>
-                <option value="Ebay-Kleinanzeigen">Ebay-Kleinanzeigen</option>
+                <option value="Kleinanzeigen">Kleinanzeigen</option>
                 <option value="SNS">SNS</option>
                 <option value="SVD">SVD</option>
                 <option value="Solebox">Solebox</option>
