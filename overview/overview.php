@@ -13,10 +13,6 @@
         color: white;
         font-family: Arial, sans-serif;
     }
-
-    .navbar {
-        background-color: #12123a !important;
-    }
 </style>
 </style>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
