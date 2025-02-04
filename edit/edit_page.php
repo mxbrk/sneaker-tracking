@@ -145,8 +145,8 @@ session_start();
                 <option <?php if($sneakerInfo[buy_shop] == 'Ebay'){echo('selected="selected"');}?>value="Ebay">Ebay
                 </option>
                 <option
-                    <?php if($sneakerInfo[buy_shop] == 'Ebay-Kleinanzeigen'){echo('selected="selected"');}?>value="Ebay-Kleinanzeigen">
-                    Ebay-Kleinanzeigen</option>
+                    <?php if($sneakerInfo[buy_shop] == 'Kleinanzeigen'){echo('selected="selected"');}?>value="Kleinanzeigen">
+                    Kleinanzeigen</option>
                 <option <?php if($sneakerInfo[buy_shop] == 'SNS'){echo('selected="selected"');}?>value="SNS">SNS
                 </option>
                 <option <?php if($sneakerInfo[buy_shop] == 'SVD'){echo('selected="selected"');}?>value="SVD">SVD
