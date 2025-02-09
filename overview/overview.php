@@ -7,6 +7,52 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../js/searchFunction.js"></script>
 <script src="../js/updateIDAlert.js"></script>
+<style>
+.light-grey {
+  background-color: #e5e5e5;
+  border-radius: 15px;
+}
+.Level1 {
+  color: #ff2d00;
+  background-color: #ff2d00;
+  border-radius: 15px;
+}
+
+.Level2 {
+  color: #ff6100;
+  background-color: #ff6100;
+  border-radius: 15px;
+}
+
+.Level3 {
+  color: #ff8f00;
+  background-color: #ff8f00;
+  border-radius: 15px;
+}
+
+.Level4 {
+  color: #ffd400;
+  background-color: #ffd400;
+  border-radius: 15px;
+}
+
+.Level5 {
+  color: #a9ff00;
+  background-color: #a9ff00;
+  border-radius: 15px;
+}
+
+.Level6 {
+  color: #61d500;
+  background-color: #61d500;
+  border-radius: 15px;
+}
+
+.Level7 {
+  color: #03c200;
+  background-color: #03c200;
+  border-radius: 15px;
+}</style>
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -162,7 +208,9 @@
                     echo "<td>" . htmlspecialchars($row['profit']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
-                    echo "<td><div class='progress'><div class='progress-bar bg-success' style='width:" . $row['status'] . "%' >" . $row['status'] . "%</div></div></td>";
+                    echo "<td>" . '<div style="width:"100%" class="light-grey"><div class="' . $row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>' .
+                    "</td>
+     </tr>";
                     echo "</tr>";
                 }
             } else {
