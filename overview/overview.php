@@ -7,30 +7,22 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="../js/searchFunction.js"></script>
 <script src="../js/updateIDAlert.js"></script>
-<style>
-    body {
-        background-color: #00001a !important;
-        color: white;
-        font-family: Arial, sans-serif;
-    }
-</style>
-</style>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-3">
+<nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
     <div class="container-fluid">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-auto">
-                <li class="nav-item"><a class="nav-link text-light" href="../index.html">Home</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="/stores/stores.html">Stores</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="/buy/buy_page.php">Buy</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="/sell/sell_landing_page.php">Sell</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="/numbers/numbers.php">Numbers</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="../index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/stores/stores.html">Stores</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/buy/buy_page.php">Buy</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/sell/sell_landing_page.php">Sell</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/numbers/numbers.php">Numbers</a></li>
                 <li class="nav-item"><a class="nav-link text-warning border-bottom border-warning"
                         href="/overview/overview.php">Overview</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="/edit/edit_landing_page.php">Edit</a></li>
-                <li class="nav-item"><a class="nav-link text-light" href="/tools/tools.php">Tools</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/edit/edit_landing_page.php">Edit</a></li>
+                <li class="nav-item"><a class="nav-link text-dark" href="/tools/tools.php">Tools</a></li>
             </ul>
         </div>
     </div>
@@ -41,7 +33,7 @@
     <form id="submitForm" action="update_progress.php" onsubmit="return approveAlert()" method="POST">
     <div class="d-flex align-items-center justify-content-between gap-2">
     <div class="d-flex align-items-center gap-2">
-        <select id="select" name="status" class="form-select bg-white text-dark border-dark w-auto">
+        <select id="select" name="status" class="form-select w-auto">
             <option value="" disabled selected>Select the status</option>
             <option value="delete_id">Delete ID</option>
             <option value="unsold">Unsold</option>
@@ -53,14 +45,14 @@
             <option value="payout">Payout</option>
             <option value="submit_sell_info">Sell-info submitted</option>
         </select>
-        <button type="submit" class="btn btn-info text-dark border-dark">Submit</button>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </div>
     <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker"
         class="form-control bg-white text-dark border-dark w-auto">
 </div>
 </div>
 <div class="table-responsive">
-    <table id="myTable" class="table table-dark table-striped table-hover">
+    <table id="myTable" class="table table-light table-striped table-hover">
         <thead>
             <tr>
                 <th></th>
