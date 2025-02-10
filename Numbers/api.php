@@ -1,3 +1,10 @@
+<?php
+$servername = "servername";
+$username = "username";
+$password = "password";
+$dbname = "database";
+?>
+
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -20,30 +27,24 @@
         function fetchChartData(query, callback) {
             fetch(`api.php?query=${query}`)
                 .then(response => response.json())
-                .then(data => callback(data))
+                .then(data => {
+                    console.log(`DEBUG (${query}):`, data);
+                    callback(data);
+                })
                 .catch(error => console.error(`Fehler beim Laden von ${query}:`, error));
         }
 
         function drawProfitabilityChart(data) {
             let dataTable = new google.visualization.DataTable();
-            dataTable.addColumn('string', 'Marke & Modell');
+            dataTable.addColumn('string', 'Marke');
+            dataTable.addColumn('string', 'Modell');
             dataTable.addColumn('number', 'Profit');
-            dataTable.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
-            
+
             data.forEach(row => {
-                let tooltip = `<b>${row.brand} ${row.modell}</b><br>Profit: ${row.profit}€`;
-                dataTable.addRow([`${row.brand} ${row.modell}`, row.profit, tooltip]);
+                dataTable.addRow([row.brand, row.modell, parseFloat(row.profit)]);
             });
 
-            let options = {
-                title: 'Profitabilität pro Marke & Modell',
-                hAxis: { title: 'Marke & Modell' },
-                vAxis: { title: 'Profit (€)' },
-                legend: 'none',
-                tooltip: { isHtml: true },
-                explorer: { actions: ['dragToZoom', 'rightClickToReset'] }
-            };
-            
+            let options = { title: 'Profitabilität pro Marke & Modell' };
             let chart = new google.visualization.ColumnChart(document.getElementById('chart_profitability'));
             chart.draw(dataTable, options);
         }
@@ -52,22 +53,12 @@
             let dataTable = new google.visualization.DataTable();
             dataTable.addColumn('number', 'Einkaufspreis');
             dataTable.addColumn('number', 'Profit');
-            dataTable.addColumn({type: 'string', role: 'tooltip', p: {html: true}});
-            
+
             data.forEach(row => {
-                let tooltip = `<b>Kaufpreis: ${row.buying_price}€</b><br>Profit: ${row.profit}€`;
-                dataTable.addRow([row.buying_price, row.profit, tooltip]);
+                dataTable.addRow([parseFloat(row.buying_price), parseFloat(row.profit)]);
             });
 
-            let options = {
-                title: 'ROI-Analyse: Gewinn vs. Kaufpreis',
-                hAxis: { title: 'Einkaufspreis (€)' },
-                vAxis: { title: 'Profit (€)' },
-                legend: 'none',
-                tooltip: { isHtml: true },
-                explorer: { actions: ['dragToZoom', 'rightClickToReset'] }
-            };
-
+            let options = { title: 'Gewinn vs. Kaufpreis (ROI-Analyse)' };
             let chart = new google.visualization.ScatterChart(document.getElementById('chart_roi_analysis'));
             chart.draw(dataTable, options);
         }
@@ -77,20 +68,13 @@
             dataTable.addColumn('number', 'Einkaufspreis');
             dataTable.addColumn('number', 'Verkaufspreis');
             dataTable.addColumn('number', 'Profit');
-            
+
             data.forEach(row => {
-                dataTable.addRow([row.buying_price, row.selling_price, row.profit]);
+                dataTable.addRow([parseFloat(row.buying_price), parseFloat(row.selling_price), parseFloat(row.profit)]);
             });
 
-            let options = {
-                title: 'Verkaufspreis vs. Einkaufspreis & Profit',
-                hAxis: { title: 'Einkaufspreis (€)' },
-                vAxis: { title: 'Verkaufspreis (€)' },
-                legend: 'none',
-                explorer: { actions: ['dragToZoom', 'rightClickToReset'] }
-            };
-
-            let chart = new google.visualization.BubbleChart(document.getElementById('chart_price_vs_sell'));
+            let options = { title: 'Verhältnis von Einkaufspreis zu Verkaufswahrscheinlichkeit & Profitabilität' };
+            let chart = new google.visualization.ScatterChart(document.getElementById('chart_price_vs_sell'));
             chart.draw(dataTable, options);
         }
 
@@ -98,20 +82,13 @@
             let dataTable = new google.visualization.DataTable();
             dataTable.addColumn('number', 'Einkaufspreis');
             dataTable.addColumn('number', 'ROI (%)');
-            
+
             data.forEach(row => {
-                dataTable.addRow([row.buying_price, row.roi_percentage]);
+                dataTable.addRow([parseFloat(row.buying_price), parseFloat(row.roi_percentage)]);
             });
 
-            let options = {
-                title: 'Bestes ROI nach Einkaufspreis',
-                hAxis: { title: 'Einkaufspreis (€)' },
-                vAxis: { title: 'ROI (%)' },
-                legend: 'none',
-                explorer: { actions: ['dragToZoom', 'rightClickToReset'] }
-            };
-
-            let chart = new google.visualization.LineChart(document.getElementById('chart_best_roi'));
+            let options = { title: 'Bestes Preis-Leistungs-Verhältnis beim Einkauf' };
+            let chart = new google.visualization.ScatterChart(document.getElementById('chart_best_roi'));
             chart.draw(dataTable, options);
         }
 
@@ -119,19 +96,12 @@
             let dataTable = new google.visualization.DataTable();
             dataTable.addColumn('number', 'Einkaufspreis');
             dataTable.addColumn('number', 'Profit');
-            
+
             data.forEach(row => {
-                dataTable.addRow([row.buying_price, row.profit]);
+                dataTable.addRow([parseFloat(row.buying_price), parseFloat(row.profit)]);
             });
 
-            let options = {
-                title: 'Profit-Margen im Verhältnis zum Einkaufspreis',
-                hAxis: { title: 'Einkaufspreis (€)' },
-                vAxis: { title: 'Profit (€)' },
-                legend: 'none',
-                explorer: { actions: ['dragToZoom', 'rightClickToReset'] }
-            };
-
+            let options = { title: 'Profit-Margen im Verhältnis zum Einkaufspreis' };
             let chart = new google.visualization.ScatterChart(document.getElementById('chart_profit_margin'));
             chart.draw(dataTable, options);
         }
