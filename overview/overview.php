@@ -1,12 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>STB-Overview</title>
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="../js/searchFunction.js"></script>
-<script src="../js/updateIDAlert.js"></script>
+
+<head>
+    <link rel="icon" type="image/png" sizes="32x32" href="/Sneaker_Red.png">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STB-Overview</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/searchFunction.js"></script>
+    <script src="../js/updateIDAlert.js"></script>
+
+</head>
 <style>
     .light-grey {
         background-color: #e5e5e5;
@@ -54,18 +59,23 @@
         background-color: #03c200;
         border-radius: 15px;
     }
-    .text-custom {
-        color: #d14124 !important;
+
+    .navbar-nav .nav-link {
+        color: #00001a;
+        transition: color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+        border-bottom: 2px solid transparent;
+        padding-bottom: 5px;
     }
 
-    .border-custom {
-        border-color: #d14124 !important;
+    .navbar-nav .nav-link:hover {
+        color: #d14124 !important;
+        border-bottom: 2px solid #d14124 !important;
     }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
     <div class="container-fluid">
-        <img src="logo.png" width="100" height="60" class="d-inline-block align-top" alt="">
+        <img src="logo.png" width="100" height="60" class="me-5 d-inline-block align-top" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -76,8 +86,7 @@
                 <li class="nav-item"><a class="nav-link text-dark" href="/buy/buy_page.php">Buy</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/sell/sell_landing_page.php">Sell</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/numbers/numbers.php">Numbers</a></li>
-                <li class="nav-item"><a class="nav-link text-custom border-bottom border-custom"
-                        href="/overview/overview.php">Overview</a></li>
+                <li class="nav-item"><a class="nav-link border-bottom" href="/overview/overview.php">Overview</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/edit/edit_landing_page.php">Edit</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/tools/tools.php">Tools</a></li>
             </ul>
