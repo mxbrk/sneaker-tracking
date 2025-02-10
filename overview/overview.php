@@ -8,53 +8,64 @@
 <script src="../js/searchFunction.js"></script>
 <script src="../js/updateIDAlert.js"></script>
 <style>
-.light-grey {
-  background-color: #e5e5e5;
-  border-radius: 15px;
-}
-.Level1 {
-  color: #ff2d00;
-  background-color: #ff2d00;
-  border-radius: 15px;
-}
+    .light-grey {
+        background-color: #e5e5e5;
+        border-radius: 15px;
+    }
 
-.Level2 {
-  color: #ff6100;
-  background-color: #ff6100;
-  border-radius: 15px;
-}
+    .Level1 {
+        color: #ff2d00;
+        background-color: #ff2d00;
+        border-radius: 15px;
+    }
 
-.Level3 {
-  color: #ff8f00;
-  background-color: #ff8f00;
-  border-radius: 15px;
-}
+    .Level2 {
+        color: #ff6100;
+        background-color: #ff6100;
+        border-radius: 15px;
+    }
 
-.Level4 {
-  color: #ffd400;
-  background-color: #ffd400;
-  border-radius: 15px;
-}
+    .Level3 {
+        color: #ff8f00;
+        background-color: #ff8f00;
+        border-radius: 15px;
+    }
 
-.Level5 {
-  color: #a9ff00;
-  background-color: #a9ff00;
-  border-radius: 15px;
-}
+    .Level4 {
+        color: #ffd400;
+        background-color: #ffd400;
+        border-radius: 15px;
+    }
 
-.Level6 {
-  color: #61d500;
-  background-color: #61d500;
-  border-radius: 15px;
-}
+    .Level5 {
+        color: #a9ff00;
+        background-color: #a9ff00;
+        border-radius: 15px;
+    }
 
-.Level7 {
-  color: #03c200;
-  background-color: #03c200;
-  border-radius: 15px;
-}</style>
+    .Level6 {
+        color: #61d500;
+        background-color: #61d500;
+        border-radius: 15px;
+    }
+
+    .Level7 {
+        color: #03c200;
+        background-color: #03c200;
+        border-radius: 15px;
+    }
+    .text-custom {
+        color: #d14124 !important;
+    }
+
+    .border-custom {
+        border-color: #d14124 !important;
+    }
+</style>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
     <div class="container-fluid">
+        <img src="logo.png" width="100" height="60" class="d-inline-block align-top" alt="">
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -65,7 +76,7 @@
                 <li class="nav-item"><a class="nav-link text-dark" href="/buy/buy_page.php">Buy</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/sell/sell_landing_page.php">Sell</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/numbers/numbers.php">Numbers</a></li>
-                <li class="nav-item"><a class="nav-link text-warning border-bottom border-warning"
+                <li class="nav-item"><a class="nav-link text-custom border-bottom border-custom"
                         href="/overview/overview.php">Overview</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/edit/edit_landing_page.php">Edit</a></li>
                 <li class="nav-item"><a class="nav-link text-dark" href="/tools/tools.php">Tools</a></li>
@@ -77,25 +88,25 @@
 
 <div class="table-responsive">
     <form id="submitForm" action="update_progress.php" onsubmit="return approveAlert()" method="POST">
-    <div class="d-flex align-items-center justify-content-between gap-2">
-    <div class="d-flex align-items-center gap-2">
-        <select id="select" name="status" class="form-select w-auto">
-            <option value="" disabled selected>Select the status</option>
-            <option value="delete_id">Delete ID</option>
-            <option value="unsold">Unsold</option>
-            <option value="payed">Payed</option>
-            <option value="arrived">Arrived</option>
-            <option value="listing_item">Listed for selling</option>
-            <option value="sold_item">Sold</option>
-            <option value="shipped_to_buyer">Shipped to buyer</option>
-            <option value="payout">Payout</option>
-            <option value="submit_sell_info">Sell-info submitted</option>
-        </select>
-        <button type="submit" class="btn btn-primary">Submit</button>
-    </div>
-    <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker"
-        class="form-control bg-white text-dark border-dark w-auto">
-</div>
+        <div class="d-flex align-items-center justify-content-between gap-2">
+            <div class="d-flex align-items-center gap-2">
+                <select id="select" name="status" class="form-select w-auto">
+                    <option value="" disabled selected>Select the status</option>
+                    <option value="delete_id">Delete ID</option>
+                    <option value="unsold">Unsold</option>
+                    <option value="payed">Payed</option>
+                    <option value="arrived">Arrived</option>
+                    <option value="listing_item">Listed for selling</option>
+                    <option value="sold_item">Sold</option>
+                    <option value="shipped_to_buyer">Shipped to buyer</option>
+                    <option value="payout">Payout</option>
+                    <option value="submit_sell_info">Sell-info submitted</option>
+                </select>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            <input type="search" id="searchInput" onkeyup="searchFunction()" placeholder="Search for sneaker"
+                class="form-control mr-sm-2 w-auto">
+        </div>
 </div>
 <div class="table-responsive">
     <table id="myTable" class="table table-light table-striped table-hover">
@@ -209,7 +220,7 @@
                     echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
                     echo "<td>" . '<div style="width:"100%" class="light-grey"><div class="' . $row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>' .
-                    "</td>
+                        "</td>
      </tr>";
                     echo "</tr>";
                 }
