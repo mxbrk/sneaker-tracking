@@ -78,6 +78,24 @@
         color: #d14124 !important;
         border-bottom: 2px solid #d14124 !important;
     }
+    
+    /* New progress bar styles */
+    .progress-container {
+        width: 100%;
+        background-color: #e5e5e5;
+        border-radius: 10px;
+        overflow: hidden;
+        position: relative;
+        height: 20px;
+        box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    }
+
+    .progress-bar {
+        height: 100%;
+        border-radius: 10px;
+        transition: width 0.4s ease;
+        position: relative;
+    }
 </style>
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light mb-3">
@@ -235,8 +253,14 @@
                         echo "<td>" . htmlspecialchars($row['profit']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['invoiceNumber']) . "</td>";
                         echo "<td>" . htmlspecialchars($row['statusName']) . "</td>";
-                        echo "<td>" . '<div style="width:"100%" class="light-grey"><div class="' . $row['statusColor'] . '" style="width:' . $row['status'] . '%">' . $row['status'] . '</div></div>' .
-                            "</td></tr>";
+                        
+                        // New progress bar implementation
+                        echo "<td>
+                                <div class='progress-container'>
+                                    <div class='progress-bar " . $row['statusColor'] . "' style='width:" . $row['status'] . "%'></div>
+                                </div>
+                            </td>";
+                            
                         echo "</tr>";
                     }
                 } else {
